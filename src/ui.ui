@@ -1236,6 +1236,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>comboBox_HexOrAscii</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slot_comboBox_hexOrAscii(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>45</x>
+     <y>521</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1</x>
+     <y>523</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <designerdata>
   <property name="gridDeltaX">

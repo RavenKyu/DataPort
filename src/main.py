@@ -64,6 +64,14 @@ class mainForm(QtGui.QMainWindow):
         else:
             self.ui.textEdit_2.insertPlainText(buf)
 
+    def slot_comboBox_hexOrAscii(self, status): 
+        # Hex 또는 Ascii 콤보 박스 
+        if self.ui.comboBox_HexOrAscii.currentIndex() == 0:
+            Data = str(self.ui.lineEdit_protocol.text()).encode('hex')
+        else:
+            Data = str(self.ui.lineEdit_protocol.text()).decode('hex')
+        self.ui.lineEdit_protocol.setText(Data)
+
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
     myapp = mainForm()
