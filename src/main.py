@@ -41,10 +41,12 @@ class mainForm(QtGui.QMainWindow):
     def slot_pushButton_sendData(self): # 데이터 전송 
         if self.ser.isOpen() is False:  # 시리얼 연결이 안되어 있을때
             return
+            
+        dataBuf = ''
+        dataBuf = self.getAssembledProtocol() # 프로토콜 데이터 취합 
 
-        self.protocol = '' + self.ui.lineEdit_protocol.text()
-        self.ser.writeData(self.protocol)
-        self.updateText(self.protocol, 0)
+        self.ser.writeData(dataBuf)
+        self.updateText(dataBuf, 0)
 
     def updateText( self, text, destination):
         # Hex 값 표출 창 
@@ -71,6 +73,24 @@ class mainForm(QtGui.QMainWindow):
         else:
             Data = str(self.ui.lineEdit_protocol.text()).decode('hex')
         self.ui.lineEdit_protocol.setText(Data)
+
+
+    def getAssembledProtocol(self):
+        # 프로토콜란에 입력된 데이터를 하나의 문자열로 취합 
+        status = self.ui.comboBox_HexOrAscii.currentIndex()
+        head1 = '' + str(self.ui.lineEdit_head1.text()).decode('hex')
+        head2 = '' + str(self.ui.lineEdit_head2.text()).decode('hex')
+        
+        if 0 == status:         # HEX 상태일 경우 
+            protocol = '' + str(self.ui.lineEdit_protocol.text()).decode('hex')
+        else:
+            protocol = '' + self.ui.lineEdit_protocol.text()
+
+        tail1 = '' + str(self.ui.lineEdit_tail1.text()).decode('hex')
+        tail2 = '' + str(self.ui.lineEdit_tail2.text()).decode('hex')
+        dataBuf = '' + head1 + head2 + protocol + tail1 + tail2
+            
+        return dataBuf
 
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
