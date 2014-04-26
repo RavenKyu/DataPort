@@ -92,6 +92,36 @@ class mainForm(QtGui.QMainWindow):
             
         return dataBuf
 
+    def slot_radioBox_nothing(self): # 데이터 전송 
+        self.ui.lineEdit_head1.setText('')
+        self.ui.lineEdit_head2.setText('')
+        self.ui.lineEdit_tail1.setText('')
+        self.ui.lineEdit_tail2.setText('')
+
+    def slot_radioBox_CR(self): # 데이터 전송 
+        self.ui.lineEdit_head1.setText('')
+        self.ui.lineEdit_head2.setText('')
+        self.ui.lineEdit_tail1.setText('')
+        self.ui.lineEdit_tail2.setText('0d')
+
+    def slot_radioBox_LF(self): # 데이터 전송 
+        self.ui.lineEdit_head1.setText('')
+        self.ui.lineEdit_head2.setText('')
+        self.ui.lineEdit_tail1.setText('')
+        self.ui.lineEdit_tail2.setText('0a')
+
+    def slot_radioBox_CRLF(self): # 데이터 전송 
+        self.ui.lineEdit_head1.setText('')
+        self.ui.lineEdit_head2.setText('')
+        self.ui.lineEdit_tail1.setText('')
+        self.ui.lineEdit_tail2.setText('0d0a')
+
+    def slot_radioBox_STXETX(self): # 데이터 전송 
+        self.ui.lineEdit_head1.setText('02')
+        self.ui.lineEdit_head2.setText('')
+        self.ui.lineEdit_tail1.setText('03')
+        self.ui.lineEdit_tail2.setText('0d0a')
+
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
     myapp = mainForm()

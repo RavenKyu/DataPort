@@ -1252,6 +1252,86 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>radioButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slot_radioBox_nothing()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>72</x>
+     <y>487</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-7</x>
+     <y>487</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slot_radioBox_CR()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>120</x>
+     <y>483</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1</x>
+     <y>475</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slot_radioBox_LF()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>229</x>
+     <y>487</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>0</x>
+     <y>458</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_4</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slot_radioBox_CRLF()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>299</x>
+     <y>484</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>2</x>
+     <y>435</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_5</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slot_radioBox_STXETX()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>477</x>
+     <y>482</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1</x>
+     <y>400</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <designerdata>
   <property name="gridDeltaX">
