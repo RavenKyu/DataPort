@@ -1220,6 +1220,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slot_pushButton_sendData()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>221</x>
+     <y>641</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-8</x>
+     <y>655</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <designerdata>
   <property name="gridDeltaX">
@@ -1241,7 +1257,7 @@
  <slots>
   <slot>slot_pushButton_serialConnection()</slot>
   <slot>slot_comboBox_hexOrAscii(int)</slot>
-  <slot>slot_pushButton_sendData(bool)</slot>
+  <slot>slot_pushButton_sendData()</slot>
   <slot>slot_radioBox_nothing()</slot>
   <slot>slot_radioBox_CR()</slot>
   <slot>slot_radioBox_LF()</slot>

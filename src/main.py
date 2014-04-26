@@ -38,6 +38,15 @@ class mainForm(QtGui.QMainWindow):
         else:
             self.ui.pushButton_connect.setText(QtCore.QString(u'연결끊기'));     
 
+    def slot_pushButton_sendData(self): # 데이터 전송 
+        if self.ser.isOpen() is False:  # 시리얼 연결이 안되어 있을때
+            return
+
+        self.protocol = '' + self.ui.lineEdit_protocol.text()
+        self.ser.writeData(self.protocol)
+        print self.protocol
+
+
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
     myapp = mainForm()
