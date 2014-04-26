@@ -4,6 +4,25 @@ from PyQt4 import QtGui, QtCore
 from ui import Ui_MainWindow
 from serialHandler import SerialHandler
 
+class SerialThread(QtCore.QThread):
+    # 자료 수신 쓰레드 
+    updated = QtCore.pyqtSignal(str, int)
+
+    def __init__(self, ser, parent = None):
+        QtCore.QThread.__init__(self, parent)
+        self.ser = ser
+
+    def run(self):
+        while True: 
+
+            # 수신부 
+            self.readSerialBuf = self.ser.readData(num = 1024)
+            if not self.readSerialBuf :
+                pass
+            else:
+                self.updated.emit(self.readSerialBuf, 1)
+
+
 class SerialThreadAutoSend(QtCore.QThread):
     # 데이터 자동 전송 쓰레드 
     updated = QtCore.pyqtSignal(str, int)
@@ -53,6 +72,10 @@ class mainForm(QtGui.QMainWindow):
         self.sendThreadHandle.updated.connect(self.updateText)
         self.autoSendChecked = False
 
+        # 수신 기능 관련 
+        self.serialThreadHandle = SerialThread(self.ser)
+        self.serialThreadHandle.updated.connect(self.updateText)
+
     # 사용 가능한 시리얼 포트를 찾아서 ComboBox에 추가
     def availableComport_into_comboBox(self, comNum):
         for i in comNum:
@@ -73,6 +96,7 @@ class mainForm(QtGui.QMainWindow):
             self.ser.serClose()
             self.ui.pushButton_connect.setText(QtCore.QString(u'연결하기'));
         else:
+            self.serialThreadHandle.start()
             self.ui.pushButton_connect.setText(QtCore.QString(u'연결끊기'));     
 
     def slot_pushButton_sendData(self, status): # 데이터 전송 
