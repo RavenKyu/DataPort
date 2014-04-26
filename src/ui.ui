@@ -228,7 +228,7 @@
          <item>
           <widget class="QPushButton" name="pushButton_connect">
            <property name="text">
-            <string>Connect</string>
+            <string>연결하기</string>
            </property>
           </widget>
          </item>
@@ -288,7 +288,7 @@
          <item>
           <widget class="QPushButton" name="pushButton_2">
            <property name="text">
-            <string>Connect</string>
+            <string>연결하기</string>
            </property>
           </widget>
          </item>
@@ -1199,8 +1199,24 @@
      <y>248</y>
     </hint>
     <hint type="destinationlabel">
-     <x>311</x>
-     <y>380</y>
+     <x>312</x>
+     <y>356</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_connect</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slot_pushButton_serialConnection()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>77</x>
+     <y>275</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>0</x>
+     <y>285</y>
     </hint>
    </hints>
   </connection>

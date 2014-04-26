@@ -23,6 +23,20 @@ class mainForm(QtGui.QMainWindow):
                 QtCore.QString('COM' + str(i))
             ) 
 
+    def slot_pushButton_serialConnection(self):
+        # 설정된 시리얼의 정보를 알맞은 타입으로 저장
+        serSetting = {'comPort' : self.ui.comboBox_Comport.currentText(),
+                      'comBaudrate' : int(self.ui.comboBox_Baudrate.currentText()),
+                      'parityBit' : self.ui.comboBox_parityBit.currentIndex(),
+                      'stopBit' : int(self.ui.comboBox_stopBit.currentText())}
+ 
+        self.serSetting = self.ser.convertSerSetting(serSetting) # OS 호환성 및 설정을 위해 값 변경
+ 
+        if True != self.ser.serConnect(serSetting): # 시리얼을 사용할 수 없는 상태
+            self.ser.serClose()
+            self.ui.pushButton_connect.setText(QtCore.QString(u'연결하기'));
+        else:
+            self.ui.pushButton_connect.setText(QtCore.QString(u'연결끊기'));     
 
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)

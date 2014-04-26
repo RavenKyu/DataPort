@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui.ui'
 #
-# Created: Sat Apr 26 09:56:10 2014
+# Created: Sat Apr 26 10:27:02 2014
 #      by: PyQt4 UI code generator 4.9.6
 #
 # WARNING! All changes made in this file will be lost!
@@ -481,6 +481,7 @@ class Ui_MainWindow(object):
         self.toolBox_2.setCurrentIndex(1)
         self.toolBox.setCurrentIndex(1)
         QtCore.QObject.connect(self.textEdit_1, QtCore.SIGNAL(_fromUtf8("textChanged()")), self.textEdit_1.setModified)
+        QtCore.QObject.connect(self.pushButton_connect, QtCore.SIGNAL(_fromUtf8("clicked()")), MainWindow.slot_pushButton_serialConnection)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -504,11 +505,11 @@ class Ui_MainWindow(object):
         self.comboBox_stopBit.setItemText(0, _translate("MainWindow", "1", None))
         self.comboBox_stopBit.setItemText(1, _translate("MainWindow", "1.5", None))
         self.comboBox_stopBit.setItemText(2, _translate("MainWindow", "2", None))
-        self.pushButton_connect.setText(_translate("MainWindow", "Connect", None))
+        self.pushButton_connect.setText(_translate("MainWindow", "연결하기", None))
         self.groupBox_8.setTitle(_translate("MainWindow", "TCP/IP", None))
         self.label_7.setText(_translate("MainWindow", "IP", None))
         self.label_8.setText(_translate("MainWindow", "Port", None))
-        self.pushButton_2.setText(_translate("MainWindow", "Connect", None))
+        self.pushButton_2.setText(_translate("MainWindow", "연결하기", None))
         self.groupBox.setTitle(_translate("MainWindow", "입력", None))
         self.groupBox_9.setTitle(_translate("MainWindow", "프로토콜", None))
         self.radioButton.setText(_translate("MainWindow", "없음", None))
