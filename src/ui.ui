@@ -1222,9 +1222,9 @@
   </connection>
   <connection>
    <sender>pushButton_3</sender>
-   <signal>clicked()</signal>
+   <signal>clicked(bool)</signal>
    <receiver>MainWindow</receiver>
-   <slot>slot_pushButton_sendData()</slot>
+   <slot>slot_pushButton_sendData(bool)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>221</x>
@@ -1332,6 +1332,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>checkBox_autoSending</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slot_checkBox_autoSendData(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>41</x>
+     <y>602</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-2</x>
+     <y>597</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <designerdata>
   <property name="gridDeltaX">
@@ -1353,7 +1369,7 @@
  <slots>
   <slot>slot_pushButton_serialConnection()</slot>
   <slot>slot_comboBox_hexOrAscii(int)</slot>
-  <slot>slot_pushButton_sendData()</slot>
+  <slot>slot_pushButton_sendData(bool)</slot>
   <slot>slot_radioBox_nothing()</slot>
   <slot>slot_radioBox_CR()</slot>
   <slot>slot_radioBox_LF()</slot>

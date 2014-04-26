@@ -4,6 +4,38 @@ from PyQt4 import QtGui, QtCore
 from ui import Ui_MainWindow
 from serialHandler import SerialHandler
 
+class SerialThreadAutoSend(QtCore.QThread):
+    # 데이터 자동 전송 쓰레드 
+    updated = QtCore.pyqtSignal(str, int)
+
+    def __init__(self, ser, parent = None): 
+        QtCore.QThread.__init__(self, parent)
+        self.ser = ser
+
+    def sendData(self):
+        self.ser.writeData(self.data)
+        self.updated.emit(self.data, 0) # 자료 전송 후, 송신표출창에 업데이트 
+        
+    def run(self):
+        while True:
+            # 자동 전송 체크박스 상태에 따라 동작 
+            if self.status is False:  
+                break
+
+            self.ser.writeData(self.data)
+            self.updated.emit(self.data, 0)
+            
+            time.sleep(self.intervalTime / 1000.0)
+
+
+    def changeSetting(self, intervalTime, data ):
+        self.intervalTime = intervalTime
+        self.data = data
+
+    def stopThread(self, status):
+        self.status = status;
+
+
 class mainForm(QtGui.QMainWindow):
     def __init__(self, parent = None):
         QtGui.QWidget.__init__(self, parent)
@@ -15,6 +47,11 @@ class mainForm(QtGui.QMainWindow):
         self.availableComport_into_comboBox(
             self.ser.searchAvailableComport()
         ) # 시리얼 포트 ComboBox 초기화
+
+        # 자동 전송기능 관련 
+        self.sendThreadHandle = SerialThreadAutoSend(self.ser)
+        self.sendThreadHandle.updated.connect(self.updateText)
+        self.autoSendChecked = False
 
     # 사용 가능한 시리얼 포트를 찾아서 ComboBox에 추가
     def availableComport_into_comboBox(self, comNum):
@@ -38,15 +75,26 @@ class mainForm(QtGui.QMainWindow):
         else:
             self.ui.pushButton_connect.setText(QtCore.QString(u'연결끊기'));     
 
-    def slot_pushButton_sendData(self): # 데이터 전송 
+    def slot_pushButton_sendData(self, status): # 데이터 전송 
         if self.ser.isOpen() is False:  # 시리얼 연결이 안되어 있을때
             return
-            
-        dataBuf = ''
-        dataBuf = self.getAssembledProtocol() # 프로토콜 데이터 취합 
 
-        self.ser.writeData(dataBuf)
-        self.updateText(dataBuf, 0)
+        dataBuf = self.getAssembledProtocol()            
+        self.sendThreadHandle.changeSetting(
+            self.ui.spinBox_intervalTime.value(), dataBuf
+        )                       # 자동전송 쓰레드의 전송데이터 값을 변경 
+
+        if status is False:
+            self.ui.pushButton_3.setText(u'전송')  
+            if self.autoSendChecked is True: # 자동전송 기능 활성 검사 
+                self.sendThreadHandle.stopThread(False)          
+            else:
+                self.sendThreadHandle.sendData()          
+        else:
+            self.ui.pushButton_3.setText(u'중지')
+            self.sendThreadHandle.stopThread(True)          
+            self.sendThreadHandle.start()
+
 
     def updateText( self, text, destination):
         # Hex 값 표출 창 
@@ -121,6 +169,24 @@ class mainForm(QtGui.QMainWindow):
         self.ui.lineEdit_head2.setText('')
         self.ui.lineEdit_tail1.setText('03')
         self.ui.lineEdit_tail2.setText('0d0a')
+
+    def slot_checkBox_autoSendData(self, status):
+        # 자동 전송 기능,
+        self.autoSendChecked = status
+        if status == True:
+            self.ui.pushButton_3.setCheckable(True)
+        else:
+            self.ui.pushButton_3.setCheckable(False)
+            self.sendThreadHandle.stopThread(False)          
+            self.ui.pushButton_3.setText(u'전송')
+
+
+
+
+
+
+
+
 
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
