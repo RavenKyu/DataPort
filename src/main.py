@@ -44,8 +44,25 @@ class mainForm(QtGui.QMainWindow):
 
         self.protocol = '' + self.ui.lineEdit_protocol.text()
         self.ser.writeData(self.protocol)
-        print self.protocol
+        self.updateText(self.protocol, 0)
 
+    def updateText( self, text, destination):
+        # Hex 값 표출 창 
+        dataLen = len(text) 
+        # dataLen = len(text) / 2
+        buf  = '(' + str(dataLen) + ' Byte)\n' + str(text).encode('hex') + '\n'
+        if destination == 0:    # 송신 
+            self.ui.textEdit_1.insertPlainText(buf)
+        else:                   # 수신  
+            self.ui.textEdit_3.insertPlainText(buf)
+
+        # Ascii 값 표출 창 
+        dataLen = len(text) 
+        buf = '(' + str(dataLen) + ' Byte)\n' + text + '\n'
+        if destination == 0: 
+            self.ui.textEdit_4.insertPlainText(buf)
+        else:
+            self.ui.textEdit_2.insertPlainText(buf)
 
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
