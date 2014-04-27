@@ -221,18 +221,62 @@ class mainForm(QtGui.QMainWindow):
             self.fileName = QtGui.QFileDialog.getSaveFileName(None, 'Save File', '.prt')
             self.protocolHandler.createFile(self.fileName)
         else:
-            return
+            pass
 
+        # 프로토콜은 항상 HEX로만 저장 할 수 있게,
+        # 입력 포맷 상태 확인
+        protocol = self.ui.lineEdit_protocol.text()
+        if self.ui.comboBox_HexOrAscii.currentIndex() == 1:
+            protocol = str(protocol).encode('hex')            
+            
         # 입력된 데이터를 읽어서 추가 
         self.protocolHandler.addProtocol(
             unicode(self.ui.lineEdit_protocolName.text()),
             self.ui.lineEdit_head1.text(),
             self.ui.lineEdit_head2.text(),
-            self.ui.lineEdit_protocol.text(),
+            protocol,
             self.ui.lineEdit_tail1.text(),
             self.ui.lineEdit_tail2.text() )
 
+        self.reflashItemlist()
+        self.ui.lineEdit_protocolName.setText('') # 프로토콜 이름란을 비움 
+        self.selectedProtocol = self.protocolHandler.getProtocol() # 목록을 다시 읽어옴 
+        selectedList = len(self.selectedProtocol['Protocol']) - 1
+        self.slot_comboBox_protocolList(selectedList) # 추가된 마지막 프로토콜 표시, 배열 시작은 0부터 시작이라서 - 1
+        self.ui.comboBox.setCurrentIndex(selectedList)
 
+        
+
+
+    def reflashItemlist(self):
+        # 목록 비우기 
+        countIndexNum = self.ui.comboBox.count()
+        if 0 != countIndexNum:
+            for i in range(countIndexNum):
+                self.ui.comboBox.removeItem(0)
+
+        # 목록 채우기 
+        # JSON으로 저장된 프로토콜 저장파일을 읽어와서,
+        # 순서대로 목록에 추가 
+        self.selectedProtocol = self.protocolHandler.getProtocol()
+        for i in range(len(self.selectedProtocol['Protocol'])):
+            self.ui.comboBox.insertItem(
+                i, 
+                self.selectedProtocol['Protocol'][i]['Name'], ''
+            )
+
+    def slot_comboBox_protocolList(self, indexNumber):
+        # 선택된 프로토콜 목록의 내용을 입력란에 표시 
+        self.ui.lineEdit_head1.setText(str(self.selectedProtocol['Protocol'][indexNumber]['Head1']))
+        self.ui.lineEdit_head2.setText(str(self.selectedProtocol['Protocol'][indexNumber]['Head2']))
+
+        if self.ui.comboBox_HexOrAscii.currentIndex() == 0:
+            self.ui.lineEdit_protocol.setText(self.selectedProtocol['Protocol'][indexNumber]['Protocol'])
+        else:
+            self.ui.lineEdit_protocol.setText(self.selectedProtocol['Protocol'][indexNumber]['Protocol'].decode('hex'))
+
+        self.ui.lineEdit_tail1.setText(str(self.selectedProtocol['Protocol'][indexNumber]['Tail1']))
+        self.ui.lineEdit_tail2.setText(str(self.selectedProtocol['Protocol'][indexNumber]['Tail2']))        
 
 
 

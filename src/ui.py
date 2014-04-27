@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui.ui'
 #
-# Created: Sun Apr 27 22:28:19 2014
+# Created: Sun Apr 27 23:23:30 2014
 #      by: PyQt4 UI code generator 4.9.6
 #
 # WARNING! All changes made in this file will be lost!
@@ -491,6 +491,7 @@ class Ui_MainWindow(object):
         QtCore.QObject.connect(self.radioButton_5, QtCore.SIGNAL(_fromUtf8("clicked()")), MainWindow.slot_radioBox_STXETX)
         QtCore.QObject.connect(self.checkBox_autoSending, QtCore.SIGNAL(_fromUtf8("clicked(bool)")), MainWindow.slot_checkBox_autoSendData)
         QtCore.QObject.connect(self.pushButton_4, QtCore.SIGNAL(_fromUtf8("clicked()")), MainWindow.slot_pushButton_addProtocol)
+        QtCore.QObject.connect(self.comboBox, QtCore.SIGNAL(_fromUtf8("currentIndexChanged(int)")), MainWindow.slot_comboBox_protocolList)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

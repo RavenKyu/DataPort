@@ -1364,6 +1364,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>comboBox</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slot_comboBox_protocolList(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>692</x>
+     <y>485</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>833</x>
+     <y>486</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <designerdata>
   <property name="gridDeltaX">
@@ -1393,7 +1409,7 @@
   <slot>slot_radioBox_STXETX()</slot>
   <slot>slot_pushButton_addProtocol()</slot>
   <slot>slot_pushButton_loadProtocol()</slot>
-  <slot>slot_comboBox_macroList(int)</slot>
+  <slot>slot_comboBox_protocolList(int)</slot>
   <slot>slot_pushButton_delProtocol()</slot>
   <slot>slot_checkBox_autoSendData(bool)</slot>
  </slots>
