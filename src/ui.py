@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui.ui'
 #
-# Created: Sat Apr 26 12:59:56 2014
+# Created: Sun Apr 27 22:28:19 2014
 #      by: PyQt4 UI code generator 4.9.6
 #
 # WARNING! All changes made in this file will be lost!
@@ -490,6 +490,7 @@ class Ui_MainWindow(object):
         QtCore.QObject.connect(self.radioButton_4, QtCore.SIGNAL(_fromUtf8("clicked()")), MainWindow.slot_radioBox_CRLF)
         QtCore.QObject.connect(self.radioButton_5, QtCore.SIGNAL(_fromUtf8("clicked()")), MainWindow.slot_radioBox_STXETX)
         QtCore.QObject.connect(self.checkBox_autoSending, QtCore.SIGNAL(_fromUtf8("clicked(bool)")), MainWindow.slot_checkBox_autoSendData)
+        QtCore.QObject.connect(self.pushButton_4, QtCore.SIGNAL(_fromUtf8("clicked()")), MainWindow.slot_pushButton_addProtocol)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -539,7 +540,7 @@ class Ui_MainWindow(object):
         self.label_12.setText(_translate("MainWindow", "위치", None))
         self.groupBox_3.setTitle(_translate("MainWindow", "프로토콜 관리", None))
         self.pushButton.setText(_translate("MainWindow", "프로토콜 불러오기", None))
-        self.pushButton_4.setText(_translate("MainWindow", "프로토콜 추가하기", None))
+        self.pushButton_4.setText(_translate("MainWindow", "프로토콜 저장하기", None))
         self.pushButton_5.setText(_translate("MainWindow", "프로토콜 삭제하기", None))
         self.pushButton_3.setText(_translate("MainWindow", "전송", None))
         self.groupBox_4.setTitle(_translate("MainWindow", "수신", None))

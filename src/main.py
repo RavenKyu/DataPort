@@ -3,6 +3,7 @@ import sys, time
 from PyQt4 import QtGui, QtCore
 from ui import Ui_MainWindow
 from serialHandler import SerialHandler
+from protocolHandle import ProtocolHandler
 
 class SerialThread(QtCore.QThread):
     # 자료 수신 쓰레드 
@@ -75,6 +76,9 @@ class mainForm(QtGui.QMainWindow):
         # 수신 기능 관련 
         self.serialThreadHandle = SerialThread(self.ser)
         self.serialThreadHandle.updated.connect(self.updateText)
+
+        # 프로토콜 저장 기능 관련
+        self.protocolHandler = ProtocolHandler()
 
     # 사용 가능한 시리얼 포트를 찾아서 ComboBox에 추가
     def availableComport_into_comboBox(self, comNum):
@@ -203,6 +207,30 @@ class mainForm(QtGui.QMainWindow):
             self.ui.pushButton_3.setCheckable(False)
             self.sendThreadHandle.stopThread(False)          
             self.ui.pushButton_3.setText(u'전송')
+
+    # 매크로 관련 메소드 
+    def slot_pushButton_addProtocol(self):
+
+        # 프로토콜 이름이 있는지 검사 
+        # 이름이 없으면 그냥 무시 
+        if '' == self.ui.lineEdit_protocolName.text():
+            return
+
+        # 열려있는 매크로 파일이 있는지 검사
+        if False == self.protocolHandler.isOpenFile():
+            self.fileName = QtGui.QFileDialog.getSaveFileName(None, 'Save File', '.prt')
+            self.protocolHandler.createFile(self.fileName)
+        else:
+            return
+
+        # 입력된 데이터를 읽어서 추가 
+        self.protocolHandler.addProtocol(
+            unicode(self.ui.lineEdit_protocolName.text()),
+            self.ui.lineEdit_head1.text(),
+            self.ui.lineEdit_head2.text(),
+            self.ui.lineEdit_protocol.text(),
+            self.ui.lineEdit_tail1.text(),
+            self.ui.lineEdit_tail2.text() )
 
 
 

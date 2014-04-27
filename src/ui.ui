@@ -889,7 +889,7 @@
          <item>
           <widget class="QPushButton" name="pushButton_4">
            <property name="text">
-            <string>프로토콜 추가하기</string>
+            <string>프로토콜 저장하기</string>
            </property>
           </widget>
          </item>
@@ -1345,6 +1345,22 @@
     <hint type="destinationlabel">
      <x>-2</x>
      <y>597</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_4</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slot_pushButton_addProtocol()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>765</x>
+     <y>569</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>834</x>
+     <y>569</y>
     </hint>
    </hints>
   </connection>
