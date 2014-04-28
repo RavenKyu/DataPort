@@ -1,4 +1,4 @@
-# coding: utf-8
+# coding: utf8
 import sys, time
 from PyQt4 import QtGui, QtCore
 from ui import Ui_MainWindow
@@ -127,8 +127,8 @@ class mainForm(QtGui.QMainWindow):
     def updateText( self, text, destination):
         # Hex 값 표출 창 
         dataLen = len(text) 
-        # dataLen = len(text) / 2
-        buf  = '(' + str(dataLen) + ' Byte)\n' + str(text).encode('hex') + '\n'
+        buf  = '(' + str(dataLen) + ' Byte)\n' + str(unicode(text).encode('utf-8')).encode('hex') + '\n'
+
         if destination == 0:    # 송신 
             self.ui.textEdit_1.insertPlainText(buf)
             self.ui.textEdit_1.moveCursor(QtGui.QTextCursor.End) # 스크롤을 항상 끝으로 
