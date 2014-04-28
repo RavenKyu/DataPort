@@ -245,7 +245,15 @@ class mainForm(QtGui.QMainWindow):
         self.slot_comboBox_protocolList(selectedList) # 추가된 마지막 프로토콜 표시, 배열 시작은 0부터 시작이라서 - 1
         self.ui.comboBox.setCurrentIndex(selectedList)
 
-        
+    def slot_pushButton_loadProtocol(self):
+        # 프로토콜 파일에서 읽어오기  
+        self.fileName = QtGui.QFileDialog.getOpenFileName(None, 'Save File', '.prt')
+        if str(self.fileName) == '': # 파일을 선택하지 않았을 경우 
+            return None
+
+        self.protocolHandler.openFile(str(self.fileName))
+        self.protocolHandler.open()
+        self.reflashItemlist()
 
 
     def reflashItemlist(self):
