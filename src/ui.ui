@@ -1396,6 +1396,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_5</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slot_pushButton_delProtocol()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>732</x>
+     <y>595</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>834</x>
+     <y>601</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <designerdata>
   <property name="gridDeltaX">

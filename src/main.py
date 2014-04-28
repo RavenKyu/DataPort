@@ -255,6 +255,11 @@ class mainForm(QtGui.QMainWindow):
         self.protocolHandler.open()
         self.reflashItemlist()
 
+    def slot_pushButton_delProtocol(self):
+        # 프로토콜 삭제 
+        self.protocolHandler.delProtocol(self.ui.comboBox.currentIndex())
+        self.reflashItemlist()
+
 
     def reflashItemlist(self):
         # 목록 비우기 
