@@ -125,9 +125,23 @@ class mainForm(QtGui.QMainWindow):
 
 
     def updateText( self, text, destination):
-        # Hex 값 표출 창 
-        dataLen = len(text) 
-        buf  = '(' + str(dataLen) + ' Byte)\n' + str(unicode(text).encode('utf-8')).encode('hex') + '\n'
+        dataLen = ''
+        timeStamp = ''
+
+        # Hex 값 표출 창
+        # 옵션 검사 
+        if 2 == self.ui.checkBox_timeStamp.checkState(): 
+            # 타임 스탬프가 Checked 상태라면,
+            timeStamp = '' + time.strftime('%Y-%m-%d %H:%M:%S')
+
+        if 2 == self.ui.checkBox_dataLength.checkState(): 
+            # 데이터 길이가 Checked 상태라면,
+            dataLen = '' + str(len(text)) + ' Byte '
+
+        buf = dataLen + timeStamp + '\n' + \
+              str(
+                  unicode(text).encode('utf-8')
+              ).encode('hex') + '\n\n' # 확장 아스키 출력 에러 방지 
 
         if destination == 0:    # 송신 
             self.ui.textEdit_1.insertPlainText(buf)
@@ -137,8 +151,8 @@ class mainForm(QtGui.QMainWindow):
             self.ui.textEdit_3.moveCursor(QtGui.QTextCursor.End) # 스크롤을 항상 끝으로 
 
         # Ascii 값 표출 창 
-        dataLen = len(text) 
-        buf = '(' + str(dataLen) + ' Byte)\n' + text + '\n'
+        buf = dataLen + timeStamp + '\n' + text + '\n'
+
         if destination == 0: 
             self.ui.textEdit_4.insertPlainText(buf)
             self.ui.textEdit_4.moveCursor(QtGui.QTextCursor.End) # 스크롤을 항상 끝으로 

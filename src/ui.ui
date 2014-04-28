@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>835</width>
-    <height>712</height>
+    <width>831</width>
+    <height>694</height>
    </rect>
   </property>
   <property name="mouseTracking">
@@ -27,7 +27,7 @@
     <property name="geometry">
      <rect>
       <x>6</x>
-      <y>30</y>
+      <y>10</y>
       <width>821</width>
       <height>641</height>
      </rect>
@@ -861,10 +861,10 @@
      <widget class="QGroupBox" name="groupBox_4">
       <property name="geometry">
        <rect>
-        <x>460</x>
+        <x>410</x>
         <y>10</y>
-        <width>341</width>
-        <height>341</height>
+        <width>391</width>
+        <height>301</height>
        </rect>
       </property>
       <property name="title">
@@ -875,8 +875,8 @@
         <rect>
          <x>10</x>
          <y>20</y>
-         <width>321</width>
-         <height>311</height>
+         <width>371</width>
+         <height>271</height>
         </rect>
        </property>
        <property name="currentIndex">
@@ -887,8 +887,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>321</width>
-          <height>259</height>
+          <width>371</width>
+          <height>219</height>
          </rect>
         </property>
         <attribute name="label">
@@ -899,8 +899,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>321</width>
-           <height>251</height>
+           <width>371</width>
+           <height>211</height>
           </rect>
          </property>
          <property name="focusPolicy">
@@ -928,8 +928,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>321</width>
-          <height>259</height>
+          <width>371</width>
+          <height>219</height>
          </rect>
         </property>
         <attribute name="label">
@@ -940,8 +940,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>321</width>
-           <height>251</height>
+           <width>371</width>
+           <height>211</height>
           </rect>
          </property>
          <property name="readOnly">
@@ -956,8 +956,8 @@
        <rect>
         <x>180</x>
         <y>10</y>
-        <width>271</width>
-        <height>341</height>
+        <width>221</width>
+        <height>301</height>
        </rect>
       </property>
       <property name="autoFillBackground">
@@ -977,8 +977,8 @@
         <rect>
          <x>10</x>
          <y>20</y>
-         <width>251</width>
-         <height>311</height>
+         <width>201</width>
+         <height>271</height>
         </rect>
        </property>
        <property name="locale">
@@ -992,8 +992,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>251</width>
-          <height>259</height>
+          <width>201</width>
+          <height>219</height>
          </rect>
         </property>
         <attribute name="label">
@@ -1004,8 +1004,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>251</width>
-           <height>251</height>
+           <width>201</width>
+           <height>211</height>
           </rect>
          </property>
          <property name="readOnly">
@@ -1018,8 +1018,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>251</width>
-          <height>259</height>
+          <width>201</width>
+          <height>219</height>
          </rect>
         </property>
         <attribute name="label">
@@ -1030,8 +1030,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>251</width>
-           <height>251</height>
+           <width>201</width>
+           <height>211</height>
           </rect>
          </property>
          <property name="readOnly">
@@ -1041,6 +1041,98 @@
        </widget>
       </widget>
      </widget>
+     <widget class="QGroupBox" name="groupBox_6">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>314</y>
+        <width>621</width>
+        <height>37</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>송 · 수신 옵션</string>
+      </property>
+      <widget class="QWidget" name="horizontalLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>11</y>
+         <width>421</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_12">
+        <item>
+         <widget class="QCheckBox" name="checkBox_timeStamp">
+          <property name="text">
+           <string>타임 스탬프</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+          <property name="tristate">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="checkBox_dataLength">
+          <property name="text">
+           <string>데이터 길이</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="checkBox_dataSeperate">
+          <property name="text">
+           <string>데이터 구분</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QPushButton" name="pushButton_clearShowWindow">
+       <property name="geometry">
+        <rect>
+         <x>460</x>
+         <y>11</y>
+         <width>145</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>15</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>200</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>송 · 수신창 지우기</string>
+       </property>
+      </widget>
+     </widget>
+     <zorder>groupBox_2</zorder>
+     <zorder>groupBox</zorder>
+     <zorder>groupBox_4</zorder>
+     <zorder>groupBox_5</zorder>
+     <zorder>groupBox_6</zorder>
+     <zorder>horizontalLayoutWidget</zorder>
     </widget>
    </widget>
   </widget>
@@ -1050,7 +1142,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>835</width>
+     <width>831</width>
      <height>21</height>
     </rect>
    </property>
