@@ -310,7 +310,12 @@ class mainForm(QtGui.QMainWindow):
         self.ui.lineEdit_tail2.setText(str(self.selectedProtocol['Protocol'][indexNumber]['Tail2']))        
 
 
-
+    def slot_pushButton_dataClean(self):
+        # 송·수신창 비우기 
+        self.ui.textEdit_1.setText('')
+        self.ui.textEdit_3.setText('')
+        self.ui.textEdit_2.setText('')
+        self.ui.textEdit_4.setText('')
 
 
 

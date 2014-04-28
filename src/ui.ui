@@ -1127,12 +1127,6 @@
        </property>
       </widget>
      </widget>
-     <zorder>groupBox_2</zorder>
-     <zorder>groupBox</zorder>
-     <zorder>groupBox_4</zorder>
-     <zorder>groupBox_5</zorder>
-     <zorder>groupBox_6</zorder>
-     <zorder>horizontalLayoutWidget</zorder>
     </widget>
    </widget>
   </widget>
@@ -1198,8 +1192,8 @@
      <y>248</y>
     </hint>
     <hint type="destinationlabel">
-     <x>312</x>
-     <y>356</y>
+     <x>313</x>
+     <y>296</y>
     </hint>
    </hints>
   </connection>
@@ -1210,8 +1204,8 @@
    <slot>slot_pushButton_serialConnection()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>77</x>
-     <y>275</y>
+     <x>80</x>
+     <y>269</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -1242,8 +1236,8 @@
    <slot>slot_comboBox_hexOrAscii(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>45</x>
-     <y>521</y>
+     <x>48</x>
+     <y>506</y>
     </hint>
     <hint type="destinationlabel">
      <x>1</x>
@@ -1258,8 +1252,8 @@
    <slot>slot_radioBox_nothing()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>72</x>
-     <y>487</y>
+     <x>75</x>
+     <y>473</y>
     </hint>
     <hint type="destinationlabel">
      <x>-7</x>
@@ -1274,8 +1268,8 @@
    <slot>slot_radioBox_CR()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>120</x>
-     <y>483</y>
+     <x>173</x>
+     <y>473</y>
     </hint>
     <hint type="destinationlabel">
      <x>1</x>
@@ -1290,8 +1284,8 @@
    <slot>slot_radioBox_LF()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>229</x>
-     <y>487</y>
+     <x>257</x>
+     <y>473</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -1306,8 +1300,8 @@
    <slot>slot_radioBox_CRLF()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>299</x>
-     <y>484</y>
+     <x>413</x>
+     <y>473</y>
     </hint>
     <hint type="destinationlabel">
      <x>2</x>
@@ -1322,8 +1316,8 @@
    <slot>slot_radioBox_STXETX()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>477</x>
-     <y>482</y>
+     <x>617</x>
+     <y>473</y>
     </hint>
     <hint type="destinationlabel">
      <x>1</x>
@@ -1338,8 +1332,8 @@
    <slot>slot_checkBox_autoSendData(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>41</x>
-     <y>602</y>
+     <x>44</x>
+     <y>586</y>
     </hint>
     <hint type="destinationlabel">
      <x>-2</x>
@@ -1354,8 +1348,8 @@
    <slot>slot_pushButton_addProtocol()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>765</x>
-     <y>569</y>
+     <x>768</x>
+     <y>560</y>
     </hint>
     <hint type="destinationlabel">
      <x>834</x>
@@ -1370,8 +1364,8 @@
    <slot>slot_comboBox_protocolList(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>692</x>
-     <y>485</y>
+     <x>695</x>
+     <y>476</y>
     </hint>
     <hint type="destinationlabel">
      <x>833</x>
@@ -1386,8 +1380,8 @@
    <slot>slot_pushButton_loadProtocol()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>732</x>
-     <y>539</y>
+     <x>735</x>
+     <y>531</y>
     </hint>
     <hint type="destinationlabel">
      <x>833</x>
@@ -1402,12 +1396,28 @@
    <slot>slot_pushButton_delProtocol()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>732</x>
-     <y>595</y>
+     <x>735</x>
+     <y>589</y>
     </hint>
     <hint type="destinationlabel">
      <x>834</x>
      <y>601</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_clearShowWindow</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slot_pushButton_dataClean()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>744</x>
+     <y>389</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>827</x>
+     <y>393</y>
     </hint>
    </hints>
   </connection>
@@ -1443,5 +1453,6 @@
   <slot>slot_comboBox_protocolList(int)</slot>
   <slot>slot_pushButton_delProtocol()</slot>
   <slot>slot_checkBox_autoSendData(bool)</slot>
+  <slot>slot_pushButton_dataClean()</slot>
  </slots>
 </ui>
