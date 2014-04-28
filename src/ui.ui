@@ -236,6 +236,9 @@
        </widget>
       </widget>
       <widget class="QGroupBox" name="groupBox_8">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -267,7 +270,11 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit"/>
+            <widget class="QLineEdit" name="lineEdit">
+             <property name="text">
+              <string>지원예정</string>
+             </property>
+            </widget>
            </item>
           </layout>
          </item>
@@ -772,84 +779,6 @@
          <enum>Qt::Horizontal</enum>
         </property>
        </widget>
-       <widget class="QWidget" name="horizontalLayoutWidget">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>80</y>
-          <width>411</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_12">
-         <item>
-          <widget class="QComboBox" name="comboBox_checkList">
-           <property name="minimumSize">
-            <size>
-             <width>140</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>300</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <item>
-            <property name="text">
-             <string>NONE</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>CHECKSUM(1Byte)</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>CRC16</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>CheckXorSum(2Byte)</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_10">
-           <property name="text">
-            <string>시작</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="lineEdit_checkStartIndex"/>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_11">
-           <property name="text">
-            <string>끝</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="lineEdit_checkEndIndex"/>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_12">
-           <property name="text">
-            <string>위치</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="lineEdit_checkPosition"/>
-         </item>
-        </layout>
-       </widget>
       </widget>
       <widget class="QGroupBox" name="groupBox_3">
        <property name="geometry">
@@ -1113,13 +1042,9 @@
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab_2">
-     <attribute name="title">
-      <string>Tab 2</string>
-     </attribute>
-    </widget>
    </widget>
   </widget>
+  <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -1129,37 +1054,14 @@
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFile">
+   <widget class="QMenu" name="menu">
     <property name="title">
      <string>파일</string>
     </property>
-    <addaction name="actionNew_Protocol"/>
-    <addaction name="actionOpen_Protocol"/>
-    <addaction name="actionSave_Protocol"/>
-    <addaction name="separator"/>
-    <addaction name="actionExit"/>
+    <addaction name="action_2"/>
    </widget>
-   <widget class="QMenu" name="menu">
-    <property name="title">
-     <string>보기</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menu_2">
-    <property name="title">
-     <string>창</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menu_3">
-    <property name="title">
-     <string>도움말</string>
-    </property>
-   </widget>
-   <addaction name="menuFile"/>
    <addaction name="menu"/>
-   <addaction name="menu_2"/>
-   <addaction name="menu_3"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="actionNew_Protocol">
    <property name="text">
     <string>New Protocol</string>
@@ -1183,6 +1085,11 @@
   <action name="action">
    <property name="text">
     <string>실황 화면</string>
+   </property>
+  </action>
+  <action name="action_2">
+   <property name="text">
+    <string>종료</string>
    </property>
   </action>
  </widget>
