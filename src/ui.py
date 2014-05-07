@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui.ui'
 #
-# Created: Mon Apr 28 21:46:54 2014
+# Created: Wed May 07 09:50:28 2014
 #      by: PyQt4 UI code generator 4.9.6
 #
 # WARNING! All changes made in this file will be lost!
@@ -463,9 +463,8 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.tabWidget.setCurrentIndex(0)
-        self.toolBox_2.setCurrentIndex(1)
-        self.toolBox.setCurrentIndex(1)
-        QtCore.QObject.connect(self.textEdit_1, QtCore.SIGNAL(_fromUtf8("textChanged()")), self.textEdit_1.setModified)
+        self.toolBox_2.setCurrentIndex(0)
+        self.toolBox.setCurrentIndex(0)
         QtCore.QObject.connect(self.pushButton_connect, QtCore.SIGNAL(_fromUtf8("clicked()")), MainWindow.slot_pushButton_serialConnection)
         QtCore.QObject.connect(self.pushButton_3, QtCore.SIGNAL(_fromUtf8("clicked(bool)")), MainWindow.slot_pushButton_sendData)
         QtCore.QObject.connect(self.comboBox_HexOrAscii, QtCore.SIGNAL(_fromUtf8("currentIndexChanged(int)")), MainWindow.slot_comboBox_hexOrAscii)

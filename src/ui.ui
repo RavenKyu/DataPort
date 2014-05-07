@@ -880,7 +880,7 @@
         </rect>
        </property>
        <property name="currentIndex">
-        <number>1</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="page_3">
         <property name="geometry">
@@ -985,7 +985,7 @@
         <locale language="Korean" country="RepublicOfKorea"/>
        </property>
        <property name="currentIndex">
-        <number>1</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="page">
         <property name="geometry">
@@ -1182,22 +1182,6 @@
  <resources/>
  <connections>
   <connection>
-   <sender>textEdit_1</sender>
-   <signal>textChanged()</signal>
-   <receiver>textEdit_1</receiver>
-   <slot>setModified()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>332</x>
-     <y>248</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>313</x>
-     <y>296</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>pushButton_connect</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
@@ -1220,8 +1204,8 @@
    <slot>slot_pushButton_sendData(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>221</x>
-     <y>641</y>
+     <x>223</x>
+     <y>586</y>
     </hint>
     <hint type="destinationlabel">
      <x>-8</x>
@@ -1332,8 +1316,8 @@
    <slot>slot_checkBox_autoSendData(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>44</x>
-     <y>586</y>
+     <x>47</x>
+     <y>536</y>
     </hint>
     <hint type="destinationlabel">
      <x>-2</x>
