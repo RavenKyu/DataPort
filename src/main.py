@@ -4,6 +4,9 @@ from PyQt4 import QtGui, QtCore
 from ui import Ui_MainWindow
 from serialHandler import SerialHandler
 from protocolHandle import ProtocolHandler
+from tcpIpHandler import TCPHandler
+
+from dialog import Ui_Dialog
 
 class SerialThread(QtCore.QThread):
     # 자료 수신 쓰레드 
@@ -63,22 +66,25 @@ class mainForm(QtGui.QMainWindow):
         self.ui.setupUi(self)
 
         self.ser = SerialHandler() # 시리얼 인스턴스 
+        self.tcp = TCPHandler()    # TCP/IP 인스턴스 
         
         self.availableComport_into_comboBox(
             self.ser.searchAvailableComport()
         ) # 시리얼 포트 ComboBox 초기화
 
-        # 자동 전송기능 관련 
-        self.sendThreadHandle = SerialThreadAutoSend(self.ser)
-        self.sendThreadHandle.updated.connect(self.updateText)
         self.autoSendChecked = False
-
-        # 수신 기능 관련 
-        self.serialThreadHandle = SerialThread(self.ser)
-        self.serialThreadHandle.updated.connect(self.updateText)
 
         # 프로토콜 저장 기능 관련
         self.protocolHandler = ProtocolHandler()
+
+    def recvThread(self, fd):
+        # 자동 전송기능 관련 
+        self.sendThreadHandle = SerialThreadAutoSend(fd)
+        self.sendThreadHandle.updated.connect(self.updateText)
+
+        # 수신 기능 관련 
+        self.serialThreadHandle = SerialThread(fd)
+        self.serialThreadHandle.updated.connect(self.updateText)
 
     # 사용 가능한 시리얼 포트를 찾아서 ComboBox에 추가
     def availableComport_into_comboBox(self, comNum):
@@ -165,7 +171,12 @@ class mainForm(QtGui.QMainWindow):
         if self.ui.comboBox_HexOrAscii.currentIndex() == 0:
             Data = str(self.ui.lineEdit_protocol.text()).encode('hex')
         else:
-            Data = str(self.ui.lineEdit_protocol.text()).decode('hex')
+            try:
+                Data = str(self.ui.lineEdit_protocol.text()).decode('hex')
+            except:
+                self.dialog = Ui_Dialog()
+
+                self.dialog.exec_()
         self.ui.lineEdit_protocol.setText(Data)
 
 
@@ -317,6 +328,21 @@ class mainForm(QtGui.QMainWindow):
         self.ui.textEdit_2.setText('')
         self.ui.textEdit_4.setText('')
 
+
+    def slot_pushButton_tcpConnection(self):
+        # 설정된 TCP/IP의 정보를 알맞은 타입으로 저장
+        tcpSetting = {
+            'IP' : str(self.ui.lineEdit_IP_Address.text()),
+            'Port' : int(self.ui.lineEdit_PortNumber.text())
+        }
+ 
+        if True != self.tcp.tcpConnect(tcpSetting): # 시리얼을 사용할 수 없는 상태
+            self.tcp.close()
+            self.ui.pushButton_tcpConnect.setText(QtCore.QString(u'연결하기'));
+        else:
+            self.recvThread(self.tcp)
+            self.serialThreadHandle.start()
+            self.ui.pushButton_tcpConnect.setText(QtCore.QString(u'연결끊기'));     
 
 
 

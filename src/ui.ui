@@ -237,7 +237,7 @@
       </widget>
       <widget class="QGroupBox" name="groupBox_8">
        <property name="enabled">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
        <property name="geometry">
         <rect>
@@ -270,9 +270,9 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit">
+            <widget class="QLineEdit" name="lineEdit_IP_Address">
              <property name="text">
-              <string>지원예정</string>
+              <string/>
              </property>
             </widget>
            </item>
@@ -288,12 +288,12 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_2"/>
+            <widget class="QLineEdit" name="lineEdit_PortNumber"/>
            </item>
           </layout>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_2">
+          <widget class="QPushButton" name="pushButton_tcpConnect">
            <property name="text">
             <string>연결하기</string>
            </property>
@@ -1405,6 +1405,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_tcpConnect</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slot_pushButton_tcpConnection()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>109</x>
+     <y>377</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>2</x>
+     <y>375</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <designerdata>
   <property name="gridDeltaX">
@@ -1438,5 +1454,6 @@
   <slot>slot_pushButton_delProtocol()</slot>
   <slot>slot_checkBox_autoSendData(bool)</slot>
   <slot>slot_pushButton_dataClean()</slot>
+  <slot>slot_pushButton_tcpConnection()</slot>
  </slots>
 </ui>

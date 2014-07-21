@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui.ui'
 #
-# Created: Wed May 07 09:50:28 2014
+# Created: Wed May 07 19:25:20 2014
 #      by: PyQt4 UI code generator 4.9.6
 #
 # WARNING! All changes made in this file will be lost!
@@ -115,7 +115,7 @@ class Ui_MainWindow(object):
         self.pushButton_connect.setObjectName(_fromUtf8("pushButton_connect"))
         self.verticalLayout.addWidget(self.pushButton_connect)
         self.groupBox_8 = QtGui.QGroupBox(self.groupBox_2)
-        self.groupBox_8.setEnabled(False)
+        self.groupBox_8.setEnabled(True)
         self.groupBox_8.setGeometry(QtCore.QRect(10, 220, 141, 111))
         self.groupBox_8.setObjectName(_fromUtf8("groupBox_8"))
         self.verticalLayoutWidget_2 = QtGui.QWidget(self.groupBox_8)
@@ -129,22 +129,23 @@ class Ui_MainWindow(object):
         self.label_7 = QtGui.QLabel(self.verticalLayoutWidget_2)
         self.label_7.setObjectName(_fromUtf8("label_7"))
         self.horizontalLayout_7.addWidget(self.label_7)
-        self.lineEdit = QtGui.QLineEdit(self.verticalLayoutWidget_2)
-        self.lineEdit.setObjectName(_fromUtf8("lineEdit"))
-        self.horizontalLayout_7.addWidget(self.lineEdit)
+        self.lineEdit_IP_Address = QtGui.QLineEdit(self.verticalLayoutWidget_2)
+        self.lineEdit_IP_Address.setText(_fromUtf8(""))
+        self.lineEdit_IP_Address.setObjectName(_fromUtf8("lineEdit_IP_Address"))
+        self.horizontalLayout_7.addWidget(self.lineEdit_IP_Address)
         self.verticalLayout_3.addLayout(self.horizontalLayout_7)
         self.horizontalLayout_8 = QtGui.QHBoxLayout()
         self.horizontalLayout_8.setObjectName(_fromUtf8("horizontalLayout_8"))
         self.label_8 = QtGui.QLabel(self.verticalLayoutWidget_2)
         self.label_8.setObjectName(_fromUtf8("label_8"))
         self.horizontalLayout_8.addWidget(self.label_8)
-        self.lineEdit_2 = QtGui.QLineEdit(self.verticalLayoutWidget_2)
-        self.lineEdit_2.setObjectName(_fromUtf8("lineEdit_2"))
-        self.horizontalLayout_8.addWidget(self.lineEdit_2)
+        self.lineEdit_PortNumber = QtGui.QLineEdit(self.verticalLayoutWidget_2)
+        self.lineEdit_PortNumber.setObjectName(_fromUtf8("lineEdit_PortNumber"))
+        self.horizontalLayout_8.addWidget(self.lineEdit_PortNumber)
         self.verticalLayout_3.addLayout(self.horizontalLayout_8)
-        self.pushButton_2 = QtGui.QPushButton(self.verticalLayoutWidget_2)
-        self.pushButton_2.setObjectName(_fromUtf8("pushButton_2"))
-        self.verticalLayout_3.addWidget(self.pushButton_2)
+        self.pushButton_tcpConnect = QtGui.QPushButton(self.verticalLayoutWidget_2)
+        self.pushButton_tcpConnect.setObjectName(_fromUtf8("pushButton_tcpConnect"))
+        self.verticalLayout_3.addWidget(self.pushButton_tcpConnect)
         self.groupBox = QtGui.QGroupBox(self.tab)
         self.groupBox.setGeometry(QtCore.QRect(10, 360, 791, 191))
         self.groupBox.setMinimumSize(QtCore.QSize(124, 0))
@@ -479,6 +480,7 @@ class Ui_MainWindow(object):
         QtCore.QObject.connect(self.pushButton, QtCore.SIGNAL(_fromUtf8("clicked()")), MainWindow.slot_pushButton_loadProtocol)
         QtCore.QObject.connect(self.pushButton_5, QtCore.SIGNAL(_fromUtf8("clicked()")), MainWindow.slot_pushButton_delProtocol)
         QtCore.QObject.connect(self.pushButton_clearShowWindow, QtCore.SIGNAL(_fromUtf8("clicked()")), MainWindow.slot_pushButton_dataClean)
+        QtCore.QObject.connect(self.pushButton_tcpConnect, QtCore.SIGNAL(_fromUtf8("clicked()")), MainWindow.slot_pushButton_tcpConnection)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -505,9 +507,8 @@ class Ui_MainWindow(object):
         self.pushButton_connect.setText(_translate("MainWindow", "연결하기", None))
         self.groupBox_8.setTitle(_translate("MainWindow", "TCP/IP", None))
         self.label_7.setText(_translate("MainWindow", "IP", None))
-        self.lineEdit.setText(_translate("MainWindow", "지원예정", None))
         self.label_8.setText(_translate("MainWindow", "Port", None))
-        self.pushButton_2.setText(_translate("MainWindow", "연결하기", None))
+        self.pushButton_tcpConnect.setText(_translate("MainWindow", "연결하기", None))
         self.groupBox.setTitle(_translate("MainWindow", "입력", None))
         self.groupBox_9.setTitle(_translate("MainWindow", "프로토콜", None))
         self.radioButton.setText(_translate("MainWindow", "없음", None))
