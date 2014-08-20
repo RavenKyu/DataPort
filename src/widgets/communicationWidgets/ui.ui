@@ -48,8 +48,8 @@
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>123</width>
-       <height>131</height>
+       <width>125</width>
+       <height>136</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
@@ -57,13 +57,38 @@
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
          <widget class="QLabel" name="label">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>45</width>
+            <height>16777215</height>
+           </size>
+          </property>
           <property name="text">
            <string>Port</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QComboBox" name="cb_comPort"/>
+         <widget class="QComboBox" name="cb_comPort">
+          <property name="minimumSize">
+           <size>
+            <width>65</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -71,6 +96,18 @@
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
          <widget class="QLabel" name="label_2">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>45</width>
+            <height>16777215</height>
+           </size>
+          </property>
           <property name="text">
            <string>Baudrate</string>
           </property>
@@ -78,6 +115,18 @@
         </item>
         <item>
          <widget class="QComboBox" name="cb_baudrate">
+          <property name="minimumSize">
+           <size>
+            <width>65</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
           <item>
            <property name="text">
             <string>4800</string>
@@ -111,6 +160,18 @@
        <layout class="QHBoxLayout" name="horizontalLayout_6">
         <item>
          <widget class="QLabel" name="label_6">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>45</width>
+            <height>16777215</height>
+           </size>
+          </property>
           <property name="text">
            <string>Data Bit</string>
           </property>
@@ -118,6 +179,18 @@
         </item>
         <item>
          <widget class="QComboBox" name="cb_dataBit">
+          <property name="minimumSize">
+           <size>
+            <width>65</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
           <item>
            <property name="text">
             <string>8</string>
@@ -131,6 +204,18 @@
        <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
          <widget class="QLabel" name="label_4">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>45</width>
+            <height>16777215</height>
+           </size>
+          </property>
           <property name="text">
            <string>Parity bit</string>
           </property>
@@ -138,6 +223,12 @@
         </item>
         <item>
          <widget class="QComboBox" name="cb_parityBit">
+          <property name="minimumSize">
+           <size>
+            <width>65</width>
+            <height>0</height>
+           </size>
+          </property>
           <item>
            <property name="text">
             <string>NONE</string>
@@ -161,6 +252,18 @@
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
          <widget class="QLabel" name="label_3">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>45</width>
+            <height>16777215</height>
+           </size>
+          </property>
           <property name="text">
            <string>Stop bit</string>
           </property>
@@ -168,6 +271,12 @@
         </item>
         <item>
          <widget class="QComboBox" name="cb_stopBit">
+          <property name="minimumSize">
+           <size>
+            <width>65</width>
+            <height>0</height>
+           </size>
+          </property>
           <item>
            <property name="text">
             <string>1</string>
@@ -217,7 +326,7 @@
        <x>10</x>
        <y>20</y>
        <width>121</width>
-       <height>51</height>
+       <height>52</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -225,13 +334,25 @@
        <layout class="QHBoxLayout" name="horizontalLayout_7">
         <item>
          <widget class="QLabel" name="label_7">
+          <property name="minimumSize">
+           <size>
+            <width>30</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>16777215</height>
+           </size>
+          </property>
           <property name="text">
            <string>IP</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_IP_Address">
+         <widget class="QLineEdit" name="le_ipAddress">
           <property name="text">
            <string/>
           </property>
@@ -243,13 +364,19 @@
        <layout class="QHBoxLayout" name="horizontalLayout_8">
         <item>
          <widget class="QLabel" name="label_8">
+          <property name="minimumSize">
+           <size>
+            <width>30</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="text">
            <string>Port</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_PortNumber"/>
+         <widget class="QLineEdit" name="le_portNumber"/>
         </item>
        </layout>
       </item>
@@ -272,7 +399,7 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_5">
        <item>
-        <widget class="QRadioButton" name="radioButton">
+        <widget class="QRadioButton" name="rb_serialSelected">
          <property name="text">
           <string>Serial</string>
          </property>
@@ -282,7 +409,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QRadioButton" name="radioButton_2">
+        <widget class="QRadioButton" name="rb_tcpipSelected">
          <property name="text">
           <string>TCP/IP</string>
          </property>
@@ -297,7 +424,7 @@
  <resources/>
  <connections>
   <connection>
-   <sender>radioButton</sender>
+   <sender>rb_serialSelected</sender>
    <signal>toggled(bool)</signal>
    <receiver>groupBox_7</receiver>
    <slot>setEnabled(bool)</slot>
@@ -313,7 +440,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>radioButton_2</sender>
+   <sender>rb_tcpipSelected</sender>
    <signal>toggled(bool)</signal>
    <receiver>groupBox_8</receiver>
    <slot>setEnabled(bool)</slot>

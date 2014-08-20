@@ -2,13 +2,12 @@
 import serial
 from sys import platform as _platform
 
-
 class SerialHandler():
     def __init__(self):
         self.osType = _platform
-        pass
+        self.ser = serial.Serial()
 
-    def serClose(self):
+    def func_close(self):
         try:
             self.ser.close()
         except:
@@ -61,10 +60,10 @@ class SerialHandler():
                     self.ser.close()
         return availableComport
 
-    def serConnect(self, serSetting):
+    def func_connect(self, serSetting):
         try:
             self.ser = serial.Serial(port = serSetting['comPort'],
-                                     baudrate = serSetting['comBaudrate'],
+                                     baudrate = serSetting['baudrate'],
                                      bytesize = serSetting['dataBit'],
                                      parity = serSetting['parityBit'],
                                      stopbits = serSetting['stopBit'],
