@@ -45,7 +45,8 @@ class communicationSetWidget(QtGui.QWidget):
             serSetting = {
                 'commType': 'tcpip',
                 'ipAddress': str(self.ui.le_ipAddress.text()),
-                'port': str(self.ui.le_portNumber.text())
+                'port': int(self.ui.le_portNumber.text()),
+                'type': 'server' if self.ui.rb_server.isChecked() is True else 'socket'
             }
 
         if __package__ is None:

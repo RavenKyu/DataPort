@@ -10,10 +10,22 @@
     <height>311</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>161</width>
+    <height>311</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>161</width>
+    <height>311</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QGroupBox" name="groupBox_2">
+  <widget class="QGroupBox" name="commSettingGroup">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -48,7 +60,7 @@
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>125</width>
+       <width>123</width>
        <height>136</height>
       </rect>
      </property>
@@ -78,7 +90,7 @@
          <widget class="QComboBox" name="cb_comPort">
           <property name="minimumSize">
            <size>
-            <width>65</width>
+            <width>63</width>
             <height>0</height>
            </size>
           </property>
@@ -117,7 +129,7 @@
          <widget class="QComboBox" name="cb_baudrate">
           <property name="minimumSize">
            <size>
-            <width>65</width>
+            <width>63</width>
             <height>0</height>
            </size>
           </property>
@@ -181,7 +193,7 @@
          <widget class="QComboBox" name="cb_dataBit">
           <property name="minimumSize">
            <size>
-            <width>65</width>
+            <width>63</width>
             <height>0</height>
            </size>
           </property>
@@ -225,7 +237,7 @@
          <widget class="QComboBox" name="cb_parityBit">
           <property name="minimumSize">
            <size>
-            <width>65</width>
+            <width>63</width>
             <height>0</height>
            </size>
           </property>
@@ -273,7 +285,7 @@
          <widget class="QComboBox" name="cb_stopBit">
           <property name="minimumSize">
            <size>
-            <width>65</width>
+            <width>63</width>
             <height>0</height>
            </size>
           </property>
@@ -324,12 +336,15 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>20</y>
+       <y>14</y>
        <width>121</width>
-       <height>52</height>
+       <height>62</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
+      <property name="spacing">
+       <number>3</number>
+      </property>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_7">
         <item>
@@ -377,6 +392,27 @@
         </item>
         <item>
          <widget class="QLineEdit" name="le_portNumber"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_9">
+        <item>
+         <widget class="QRadioButton" name="rb_server">
+          <property name="text">
+           <string>Server</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="rb_client">
+          <property name="text">
+           <string>Client</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>

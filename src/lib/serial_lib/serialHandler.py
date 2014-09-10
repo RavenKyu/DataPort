@@ -1,7 +1,6 @@
 # coding: utf-8
 import serial
 from sys import platform as _platform
-
 class SerialHandler():
     def __init__(self):
         self.osType = _platform
@@ -60,27 +59,37 @@ class SerialHandler():
                     self.ser.close()
         return availableComport
 
-    def func_connect(self, serSetting):
+    def func_setConf(self, serSetting):
+        self.port = serSetting['comPort']
+        self.baudrate = serSetting['baudrate']
+        self.bytesize = serSetting['dataBit']
+        self.parity = serSetting['parityBit']
+        self.stopbits = serSetting['stopBit']
+        self.timeout = 0.1
+
+
+    def func_connect(self):
         try:
-            self.ser = serial.Serial(port = serSetting['comPort'],
-                                     baudrate = serSetting['baudrate'],
-                                     bytesize = serSetting['dataBit'],
-                                     parity = serSetting['parityBit'],
-                                     stopbits = serSetting['stopBit'],
-                                     timeout = 0.1)
-        except:
+            self.ser = serial.Serial(port = self.port,
+                                     baudrate = self.baudrate,
+                                     bytesize = self.bytesize,
+                                     parity = self.parity,
+                                     stopbits = self.stopbits,
+                                     timeout = self.timeout)
+        except Exception as detail:
+            print detail
             return False
         else:
             if True is self.ser.isOpen():
                 return True
 
-    def writeData(self, data):
+    def sendData(self, data):
         self.ser.write(data)
 
     def readData(self, num = 1):
         return self.ser.read(num)
 
-    def readSerailStream(self, head, tail, bufferSize, act):
+    def readSerialStream(self, head, tail, bufferSize, act):
         readBuffer = ''
         tempBuff = ''
 
