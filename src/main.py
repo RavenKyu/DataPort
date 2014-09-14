@@ -43,8 +43,8 @@ from widgets.pannel.communicationPannel.communicationPannel import communication
 #     def run(self):
 #         while True:
 #             # 자동 전송 체크박스 상태에 따라 동작
-#             if self.status is False:
-#                 break
+#             if self.status is False:v
+#              vv   break
 #
 #             self.ser.writeData(self.data)
 #             self.updated.emit(self.data, 0)

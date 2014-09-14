@@ -13,6 +13,42 @@ class protocolAssembler(QtGui.QWidget):
         self.ui = Ui_Form()
         self.ui.setupUi(self)
 
+    def set_handler(self, handler):
+        """
+        프로토콜 매니져의 인스턴스 레퍼런스를 받는다
+        """
+
+        pass
+
+    def get_protocol(self):
+        """
+        현재 입력된 프로토콜을 Hex 값으로 리턴
+        """
+        protocol = {}
+        # 프로토콜은 항상 HEX로만 저장 할 수 있게,
+        # 입력 포맷 상태 확인
+        if self.ui.cb_hex_ascii.currentIndex() == 1:
+            data = str(self.ui.le_data.text().toLatin1()).encode('hex')
+        else:
+            data = str(self.ui.le_data.text())
+
+        protocol.update({
+            'head1': str(self.ui.le_header_1.text()),
+            'head2': str(self.ui.le_header_2.text()),
+            'data': data,
+            'tail1': str(self.ui.le_tail_1.text()),
+            'tail2': str(self.ui.le_tail_2.text()),
+        })
+        return protocol
+
+
+
+    def show_protocol(self, protocol):
+        """
+        프로토콜을 받아서 라인에디터에 표출
+        """
+        pass
+
     def slot_hex_or_ascii(self, status):
         # Hex 또는 Ascii 콤보 박스
         data = ''

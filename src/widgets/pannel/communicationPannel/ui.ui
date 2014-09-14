@@ -48,14 +48,13 @@
    <property name="autoFillBackground">
     <bool>false</bool>
    </property>
-   <zorder>groupBox</zorder>
   </widget>
   <widget class="QWidget" name="widgetInputManager" native="true">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>350</y>
-     <width>620</width>
+     <width>799</width>
      <height>191</height>
     </rect>
    </property>
@@ -137,16 +136,6 @@
    </property>
    <property name="toolTip">
     <string/>
-   </property>
-  </widget>
-  <widget class="QWidget" name="widgetProtocolManager" native="true">
-   <property name="geometry">
-    <rect>
-     <x>630</x>
-     <y>350</y>
-     <width>171</width>
-     <height>191</height>
-    </rect>
    </property>
   </widget>
  </widget>

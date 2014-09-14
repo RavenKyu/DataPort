@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui.ui'
 #
-# Created: Mon Jul 28 04:01:36 2014
+# Created: Thu Sep 11 10:24:32 2014
 #      by: PyQt4 UI code generator 4.10.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -38,7 +38,7 @@ class Ui_Pannel(object):
         self.widgetDisplayPannel.setAutoFillBackground(False)
         self.widgetDisplayPannel.setObjectName(_fromUtf8("widgetDisplayPannel"))
         self.widgetInputManager = QtGui.QWidget(Pannel)
-        self.widgetInputManager.setGeometry(QtCore.QRect(0, 350, 620, 191))
+        self.widgetInputManager.setGeometry(QtCore.QRect(0, 350, 799, 191))
         self.widgetInputManager.setMinimumSize(QtCore.QSize(124, 0))
         self.widgetInputManager.setBaseSize(QtCore.QSize(86, 0))
         palette = QtGui.QPalette()
@@ -63,9 +63,6 @@ class Ui_Pannel(object):
         self.widgetInputManager.setPalette(palette)
         self.widgetInputManager.setToolTip(_fromUtf8(""))
         self.widgetInputManager.setObjectName(_fromUtf8("widgetInputManager"))
-        self.widgetProtocolManager = QtGui.QWidget(Pannel)
-        self.widgetProtocolManager.setGeometry(QtCore.QRect(630, 350, 171, 191))
-        self.widgetProtocolManager.setObjectName(_fromUtf8("widgetProtocolManager"))
 
         self.retranslateUi(Pannel)
         QtCore.QObject.connect(self.pb_connect, QtCore.SIGNAL(_fromUtf8("clicked()")), Pannel.slot_connect)

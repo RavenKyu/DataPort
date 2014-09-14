@@ -33,7 +33,7 @@ class threadSendData(QtCore.QThread):
         if __package__ is None:
             print self.data
         else:
-            self.device_handler.sendData(self.data)
+            self.device_handler.send_data(self.data)
             self.send_signal.emit(self.data, self.location)
 
     def stop(self):
@@ -74,6 +74,19 @@ class inputPannel(QtGui.QWidget):
 
         from src.widgets.inputWidget.protocolAssembler.protocolAssembler import protocolAssembler
         self.protocol_assembler = protocolAssembler(self.ui.widget_protocolAssembler)
+
+        from src.widgets.inputWidget.protocolMangerWidget.protocolManagerWidget import protocolManager
+        self.protocol_manager = protocolManager(self.ui.widget_protocol_manager)
+
+        # 클래스간의 통신을 위한 설정
+        self.protocol_assembler.set_handler(self.protocol_manager)
+        self.protocol_manager.set_handler(self.protocol_assembler)
+
+        # self.protocol_manager.ui.pb_save.connect(
+        #     self.protocol_manager.ui.pb_save,
+        #     QtCore.SIGNAL("clicked()"),
+        #     self.sig_protocol_manager_save
+        #     )
 
         self.send_thread = threadSendData(self.commSignal)
 

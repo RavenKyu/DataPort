@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
 
 import sys
+
 from PyQt4 import QtGui, QtCore
 
 from ui import Ui_Pannel
 from src.widgets.communicationWidgets.communicaiotnSet import communicationSetWidget
 from src.widgets.displayDataPannel.displayDataPannel import displayDataPannel
 from src.widgets.inputWidget.inputWidget import inputPannel
-from src.widgets.protocolMangerWidget.protocolManagerWidget import protocolManager
-
+from src.widgets.inputWidget.protocolMangerWidget.protocolManagerWidget import protocolManager
 from src.lib.serial_lib.serialThread import serialReceiveThread
-
 from src.lib.tcpip_lib.tcpipHandler import server
 from src.lib.tcpip_lib.tcpipHandler import socket
+
 
 class communicationPannel(QtGui.QWidget):
     RECV_DATA = 1
@@ -36,7 +36,7 @@ class communicationPannel(QtGui.QWidget):
         self.inputWidget.ui.pb_sendButton.setEnabled(False)
 
         # 입력 창 위젯
-        self.protocolManager = protocolManager(self.ui.widgetProtocolManager)
+        # self.protocolManager = protocolManager(self.ui.widgetProtocolManager)
 
 
         # 통신 핸들러 선언(기본값으로 SerialHandler)
@@ -76,6 +76,11 @@ class communicationPannel(QtGui.QWidget):
                 if conf['commType'] == 'serial':
                     self.comm_handle.resume()
                     self.comm_handle.start()
+                elif conf['commType'] == 'tcpip':
+                    pass
+                    # self.comm_handle.resume()
+                    # self.comm_handle.start()
+
                 # self.comm_handle.messageSignal.connect(self.showData)
                 self.inputWidget.set_conf(self.comm_handle, self.SEND_DATA)
 

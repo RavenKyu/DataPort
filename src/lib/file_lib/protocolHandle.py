@@ -6,7 +6,7 @@ import os
 class ProtocolHandler():
     def __init__(self):
         self.fileFd = None
-        self.protocolData = {'Protocol' : []}
+        self.protocolData = {'protocol' : []}
         
     def __del__(self):
         if self.fileFd is not None:
@@ -36,17 +36,17 @@ class ProtocolHandler():
             return True
 
     def addProtocol(self, name, head1, head2, protocol, tail1, tail2):
-        self.protocolData['Protocol'].append(
+        self.protocolData['protocol'].append(
                 {
-                    'Name' : str(name), 
-                    'Head1' : str(head1), 'Head2' : str(head2), 
-                    'Protocol' : str(protocol), 
-                    'Tail1' : str(tail1), 'Tail2' : str(tail2) 
+                    'name' : unicode(name),
+                    'head1' : str(head1), 'head2' : str(head2),
+                    'data' : str(protocol),
+                    'tail1' : str(tail1), 'tail2' : str(tail2)
                 }
         )
 
     def delProtocol(self, index):
-        self.protocolData['Protocol'].pop(index)
+        self.protocolData['protocol'].pop(index)
         self.fileTruncate()
         json.dumps(self.protocolData, indent=4)
         return

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui.ui'
 #
-# Created: Tue Sep 09 16:14:08 2014
+# Created: Thu Sep 11 23:01:25 2014
 #      by: PyQt4 UI code generator 4.10.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,7 +26,7 @@ except AttributeError:
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName(_fromUtf8("Form"))
-        Form.resize(620, 191)
+        Form.resize(792, 191)
         self.groupBox = QtGui.QGroupBox(Form)
         self.groupBox.setGeometry(QtCore.QRect(0, 0, 620, 191))
         self.groupBox.setMinimumSize(QtCore.QSize(124, 0))
@@ -127,6 +127,9 @@ class Ui_Form(object):
         self.label_16.setObjectName(_fromUtf8("label_16"))
         self.horizontalLayout_21.addWidget(self.label_16)
         self.horizontalLayout_20.addLayout(self.horizontalLayout_21)
+        self.widget_protocol_manager = QtGui.QWidget(Form)
+        self.widget_protocol_manager.setGeometry(QtCore.QRect(630, 0, 161, 191))
+        self.widget_protocol_manager.setObjectName(_fromUtf8("widget_protocol_manager"))
 
         self.retranslateUi(Form)
         QtCore.QObject.connect(self.pb_sendButton, QtCore.SIGNAL(_fromUtf8("clicked()")), Form.slot_send_data)

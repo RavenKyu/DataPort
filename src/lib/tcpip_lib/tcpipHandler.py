@@ -4,9 +4,8 @@
 from PyQt4 import QtCore, QtGui, QtNetwork
 
 class server(QtNetwork.QTcpServer):
-    recvSignal = QtCore.pyqtSignal(str, int)
-    sendSignal = QtCore.pyqtSignal(str, int)
-    messageSignal = QtCore.pyqtSignal(str, int, str)
+    messageSignal = QtCore.pyqtSignal(str, int)
+    commSignal = QtCore.pyqtSignal(str, int)
 
     def __init__(self, parent= None):
         super(server, self).__init__()
@@ -34,6 +33,9 @@ class server(QtNetwork.QTcpServer):
     def start(self):
         return self.func_connect()
 
+    def resume(self):
+        pass
+
     def func_connect(self):
         retStatus = False
         if self.listen(QtNetwork.QHostAddress(self.host), self.port):
@@ -54,7 +56,7 @@ class server(QtNetwork.QTcpServer):
                 retStatus = False
         return retStatus
 
-    def writeData(self, text):
+    def send_data(self, text):
         for s in self.connection:
             s.write(str(text))
 
@@ -83,8 +85,7 @@ class server(QtNetwork.QTcpServer):
             if s.bytesAvailable() > 0:
                 self.recvBuf = ''
                 self.recvBuf = s.readAll()
-                self.recvSignal.emit(unicode(self.recvBuf), self.id)
-                print self.recvBuf
+                self.commSignal.emit(str(QtCore.QString(self.recvBuf).toLatin1()), self.id)
                 if __package__ == None: print 'server received : ', self.recvBuf
                 if __package__ == None : print "connection %d" % len(self.connection)
 
@@ -102,10 +103,8 @@ class server(QtNetwork.QTcpServer):
 
 
 class socket(QtNetwork.QTcpSocket):
-
-    recvSignal = QtCore.pyqtSignal(str, int)
-    sendSignal = QtCore.pyqtSignal(str, int)
     messageSignal = QtCore.pyqtSignal(str, int)
+    commSignal = QtCore.pyqtSignal(str, int)
 
     def __init__(self, parent = None):
         super(socket, self).__init__()
@@ -123,11 +122,15 @@ class socket(QtNetwork.QTcpSocket):
     def func_start(self):
         self.start()
 
+    def resume(self):
+        pass
 
     def start(self):
         self.messageSignal.emit(u'접속 테스트', self.id)
         self.func_connect()
-        self.func_close()
+        # self.func_close()
+
+
 
 
     # 소켓 설정 메소드
@@ -150,15 +153,12 @@ class socket(QtNetwork.QTcpSocket):
         QtNetwork.QTcpSocket.waitForConnected(self)
         if self.state() != QtNetwork.QAbstractSocket.ConnectedState:
             self.messageSignal.emit(u'서버와의 접속이 연결되지 않았습니다..', self.id)
-            print 'hh'
             return False
         else:
             self.messageSignal.emit(u'서버와 접속되었습니다.', self.id)
             return True
 
     def isOpen(self):
-        print self.state()
-
         if self.state() == QtNetwork.QAbstractSocket.ConnectedState: return True
         else: return False
 
@@ -176,7 +176,7 @@ class socket(QtNetwork.QTcpSocket):
     def func_close(self):
         self.stop()
 
-    def func_writeData(self, data):
+    def send_data(self, data):
         if self.state() != QtNetwork.QAbstractSocket.ConnectedState:
             self.func_connect()
 
@@ -191,9 +191,9 @@ class socket(QtNetwork.QTcpSocket):
 
         elif self.state() == QtNetwork.QAbstractSocket.ConnectedState:
             self.writeData(data)
-            self.sendSignal.emit(data, self.id)
+            # self.commSignal.emit(data, 0)
             if __package__ is None: print data
-            # self.func_close()
+
 
 
 
@@ -202,7 +202,7 @@ class socket(QtNetwork.QTcpSocket):
         if self.bytesAvailable():
             self.recvBuf = ''
             self.recvBuf = self.readAll()
-            self.recvSignal.emit(unicode(self.recvBuf), self.id)
+            self.commSignal.emit(str(QtCore.QString(self.recvBuf).toLatin1()), 1)
             if __package__ is None: print self.recvBuf
 
 
@@ -255,16 +255,16 @@ if __name__ == "__main__":
     # testSocket2.func_connect()
 
 
-    testServer = server()
-    testServer.func_setConf('127.0.0.1',2002,1)
-    testServer.func_connect()
+    # testServer = server()
+    # testServer.func_setConf('127.0.0.1',2002,1)
+    # testServer.func_connect()
 
     # data1 ='01'.decode('hex') + '255008x1001,01MN,201408061659,2790, 790, 790,   0,   0,   0,10583, -999, -999,   1,    1,  10, 3560,  24,  28,2397,2397, 154,    0x3d' + '04'.decode('hex')
     # data2 ='01'.decode('hex') + '255009x1001,01MN,201408061659,2790, 790, 790,   0,   0,   0,10583, -999, -999,   1,    1,  10, 3560,  24,  28,2397,2397, 154,    0x3d' + '04'.decode('hex')
     def test():
         text = lineEdit.text()
 
-        testServer.writeData(text)
+        testSocket.writeData(text)
 
 
     QtCore.QObject.connect(submitButton,QtCore.SIGNAL('clicked()'),test)
