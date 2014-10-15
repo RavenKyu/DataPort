@@ -14,6 +14,12 @@ class displayDataPannel(QtGui.QWidget):
         self.ui = Ui_displayPannel()
         self.ui.setupUi(self)
 
+    def slot_clear_display(self):
+        self.ui.te_recvAscii.setText('')
+        self.ui.te_sendAscii.setText('')
+        self.ui.te_recvHex.setText('')
+        self.ui.te_sendHex.setText('')
+
     def showData(self, text, destination):
         dataLen = ''
         timeStamp = ''
@@ -32,28 +38,29 @@ class displayDataPannel(QtGui.QWidget):
 
 
         # Hex 값 표출 창
-        buf = dataLen + timeStamp + '\n' + \
-              text.encode('hex') + '\n'
+        buf = '<a style="background-color:#e6e6e6;color:black">' + dataLen + timeStamp + '</a><br>' + \
+              text.encode('hex') + '<br>'
 
         if destination == 0:    # 송신
             self.ui.te_recvHex.moveCursor(QtGui.QTextCursor.End)
-            self.ui.te_recvHex.insertPlainText(buf)
+            self.ui.te_recvHex.insertHtml(buf)
             self.ui.te_recvHex.moveCursor(QtGui.QTextCursor.End)
         else:                   # 수신
             self.ui.te_sendHex.moveCursor(QtGui.QTextCursor.End)
-            self.ui.te_sendHex.insertPlainText(buf)
+            self.ui.te_sendHex.insertHtml(buf)
             self.ui.te_sendHex.moveCursor(QtGui.QTextCursor.End)
 
         # Ascii 값 표출 창
-        buf = dataLen + timeStamp + '\n' + text + '\n'
+        buf = '<a style="background-color:#e6e6e6;color:black">' + dataLen + timeStamp + '</a><br>' + \
+              text + '<br>'
 
         if destination == 0:
             self.ui.te_recvAscii.moveCursor(QtGui.QTextCursor.End)
-            self.ui.te_recvAscii.insertPlainText(buf)
+            self.ui.te_recvAscii.insertHtml(buf)
             self.ui.te_recvAscii.moveCursor(QtGui.QTextCursor.End)
         else:
             self.ui.te_sendAscii.moveCursor(QtGui.QTextCursor.End)
-            self.ui.te_sendAscii.insertPlainText(buf)
+            self.ui.te_sendAscii.insertHtml(buf)
             self.ui.te_sendAscii.moveCursor(QtGui.QTextCursor.End)
 
 

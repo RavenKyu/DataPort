@@ -38,7 +38,7 @@ class serialReceiveThread(QtCore.QThread, SerialHandler):
 
 
 if __name__ == '__main__':
-    from src.widgets.communicationWidgets.communicaiotnSet import communicationSetWidget
+    from src.widgets.communicationWidgets.communicationSet import communicationSetWidget
     import sys
 
     def start():

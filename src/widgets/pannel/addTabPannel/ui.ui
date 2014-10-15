@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>799</width>
+    <height>540</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QCommandLinkButton" name="clb">
+   <property name="geometry">
+    <rect>
+     <x>21</x>
+     <y>15</y>
+     <width>756</width>
+     <height>79</height>
+    </rect>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>DataPort 탭 추가
+시리얼 및 TCP 통신, 입력했던 프로토콜 저장, 자동 전송 기능</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>40</width>
+     <height>40</height>
+    </size>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>clb</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>slot_add_data_port()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>192</x>
+     <y>75</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>790</x>
+     <y>53</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>slot_add_data_port()</slot>
+  <slot>slot_test(QString)</slot>
+ </slots>
+</ui>

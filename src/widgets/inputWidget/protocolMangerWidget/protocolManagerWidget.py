@@ -48,6 +48,7 @@ class protocolManager(QtGui.QWidget):
         selected_list = len(self.selected_protocol['protocol']) - 1
         self.slot_set_selected_protocol(selected_list) # 추가된 마지막 프로토콜 표시, 배열 시작은 0부터 시작이라서 - 1
         self.ui.cb_protocol_list.setCurrentIndex(selected_list)
+        self.protocol_handler.write()
 
 
     def slot_set_selected_protocol(self, index_number):

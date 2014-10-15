@@ -30,8 +30,8 @@
      <rect>
       <x>10</x>
       <y>20</y>
-      <width>141</width>
-      <height>164</height>
+      <width>140</width>
+      <height>160</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -39,14 +39,27 @@
       <widget class="QComboBox" name="cb_protocol_list"/>
      </item>
      <item>
-      <widget class="QLineEdit" name="le_protocol_name"/>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pb_show_dialbox">
-       <property name="text">
-        <string>다이얼 형태 보기</string>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="spacing">
+        <number>2</number>
        </property>
-      </widget>
+       <item>
+        <widget class="QLineEdit" name="le_protocol_name"/>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pb_save">
+         <property name="maximumSize">
+          <size>
+           <width>35</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>저장</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
       <widget class="QPushButton" name="pb_load">
@@ -56,16 +69,16 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pb_save">
+      <widget class="QPushButton" name="pb_delete">
        <property name="text">
-        <string>프로토콜 저장하기</string>
+        <string>프로토콜 삭제하기</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pb_delete">
+      <widget class="QPushButton" name="pb_show_dialbox">
        <property name="text">
-        <string>프로토콜 삭제하기</string>
+        <string>다이얼 형태 보기</string>
        </property>
       </widget>
      </item>

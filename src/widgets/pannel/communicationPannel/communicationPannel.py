@@ -5,7 +5,7 @@ import sys
 from PyQt4 import QtGui, QtCore
 
 from ui import Ui_Pannel
-from src.widgets.communicationWidgets.communicaiotnSet import communicationSetWidget
+from src.widgets.communicationWidgets.communicationSet import communicationSetWidget
 from src.widgets.displayDataPannel.displayDataPannel import displayDataPannel
 from src.widgets.inputWidget.inputWidget import inputPannel
 from src.widgets.inputWidget.protocolMangerWidget.protocolManagerWidget import protocolManager
@@ -34,35 +34,35 @@ class communicationPannel(QtGui.QWidget):
         # 입력 창 위젯
         self.inputWidget = inputPannel(self.ui.widgetInputManager)
         self.inputWidget.ui.pb_sendButton.setEnabled(False)
-
-        # 입력 창 위젯
-        # self.protocolManager = protocolManager(self.ui.widgetProtocolManager)
-
+        self.inputWidget.commSignal.connect(self.showData)
 
         # 통신 핸들러 선언(기본값으로 SerialHandler)
         self.comm_handle = serialReceiveThread(self.RECV_DATA)
 
+    def __del__(self):
+        print 'close'
 
+    def close_tab(self):
+        pass
 
     def showData(self, data, location, msg=None):
         self.displayDataPannel.showData(data, location)
-
-
 
     def slot_connect(self):
         if self.comm_handle.isOpen() is True:
             self.comm_handle.stop()
             self.comm_handle.func_close()
+            self.inputWidget.stop()
             self.commSetWidget.ui.commSettingGroup.setEnabled(True)
             self.inputWidget.ui.pb_sendButton.setEnabled(False)
             self.ui.pb_connect.setText(QtCore.QString(u'연결하기'))
+
 
         else:
             conf = self.commSetWidget.func_getValue() # 통신설정 정보 가져오기
             if conf['commType'] == 'serial':
                 self.comm_handle = serialReceiveThread(self.RECV_DATA)
                 self.comm_handle.func_setConf(conf)
-
 
             elif conf['commType'] == 'tcpip':
                 if conf['type'] == 'server':
@@ -82,10 +82,11 @@ class communicationPannel(QtGui.QWidget):
                     # self.comm_handle.start()
 
                 # self.comm_handle.messageSignal.connect(self.showData)
-                self.inputWidget.set_conf(self.comm_handle, self.SEND_DATA)
+
 
                 self.comm_handle.commSignal.connect(self.showData)
-                self.inputWidget.commSignal.connect(self.showData)
+
+                self.inputWidget.set_conf(self.comm_handle, self.SEND_DATA)
 
                 self.commSetWidget.ui.commSettingGroup.setEnabled(False)
                 self.inputWidget.ui.pb_sendButton.setEnabled(True)

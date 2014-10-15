@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui.ui'
 #
-# Created: Thu Sep 11 23:01:25 2014
+# Created: Sun Sep 21 15:59:16 2014
 #      by: PyQt4 UI code generator 4.10.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -99,9 +99,11 @@ class Ui_Form(object):
         self.horizontalLayout_20.setMargin(0)
         self.horizontalLayout_20.setObjectName(_fromUtf8("horizontalLayout_20"))
         self.checkBox_autoSending = QtGui.QCheckBox(self.horizontalLayoutWidget_6)
+        self.checkBox_autoSending.setMinimumSize(QtCore.QSize(400, 0))
         self.checkBox_autoSending.setObjectName(_fromUtf8("checkBox_autoSending"))
         self.horizontalLayout_20.addWidget(self.checkBox_autoSending)
         self.horizontalLayout_21 = QtGui.QHBoxLayout()
+        self.horizontalLayout_21.setSpacing(2)
         self.horizontalLayout_21.setObjectName(_fromUtf8("horizontalLayout_21"))
         self.label_15 = QtGui.QLabel(self.horizontalLayoutWidget_6)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Fixed)
@@ -114,7 +116,9 @@ class Ui_Form(object):
         self.label_15.setObjectName(_fromUtf8("label_15"))
         self.horizontalLayout_21.addWidget(self.label_15)
         self.sp_intervalTime = QtGui.QSpinBox(self.horizontalLayoutWidget_6)
+        self.sp_intervalTime.setMaximumSize(QtCore.QSize(100, 16777215))
         self.sp_intervalTime.setMaximum(999999999)
+        self.sp_intervalTime.setProperty("value", 1000)
         self.sp_intervalTime.setObjectName(_fromUtf8("sp_intervalTime"))
         self.horizontalLayout_21.addWidget(self.sp_intervalTime)
         self.label_16 = QtGui.QLabel(self.horizontalLayoutWidget_6)
@@ -124,6 +128,7 @@ class Ui_Form(object):
         sizePolicy.setHeightForWidth(self.label_16.sizePolicy().hasHeightForWidth())
         self.label_16.setSizePolicy(sizePolicy)
         self.label_16.setMinimumSize(QtCore.QSize(23, 0))
+        self.label_16.setMaximumSize(QtCore.QSize(23, 16777215))
         self.label_16.setObjectName(_fromUtf8("label_16"))
         self.horizontalLayout_21.addWidget(self.label_16)
         self.horizontalLayout_20.addLayout(self.horizontalLayout_21)

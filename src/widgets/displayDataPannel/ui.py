@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui.ui'
 #
-# Created: Thu Jul 31 05:37:49 2014
+# Created: Wed Sep 17 11:59:32 2014
 #      by: PyQt4 UI code generator 4.10.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -39,11 +39,7 @@ class Ui_displayPannel(object):
         self.te_sendHex = QtGui.QTextEdit(self.page_5)
         self.te_sendHex.setGeometry(QtCore.QRect(0, 0, 371, 231))
         self.te_sendHex.setFocusPolicy(QtCore.Qt.WheelFocus)
-        self.te_sendHex.setTabChangesFocus(True)
-        self.te_sendHex.setReadOnly(True)
-        self.te_sendHex.setOverwriteMode(False)
-        self.te_sendHex.setAcceptRichText(True)
-        self.te_sendHex.setCursorWidth(1)
+        self.te_sendHex.setTextInteractionFlags(QtCore.Qt.LinksAccessibleByKeyboard|QtCore.Qt.LinksAccessibleByMouse|QtCore.Qt.TextBrowserInteraction|QtCore.Qt.TextSelectableByKeyboard|QtCore.Qt.TextSelectableByMouse)
         self.te_sendHex.setObjectName(_fromUtf8("te_sendHex"))
         self.toolBox_3.addItem(self.page_5, _fromUtf8(""))
         self.page_6 = QtGui.QWidget()
@@ -51,7 +47,7 @@ class Ui_displayPannel(object):
         self.page_6.setObjectName(_fromUtf8("page_6"))
         self.te_sendAscii = QtGui.QTextEdit(self.page_6)
         self.te_sendAscii.setGeometry(QtCore.QRect(0, 0, 371, 231))
-        self.te_sendAscii.setReadOnly(True)
+        self.te_sendAscii.setTextInteractionFlags(QtCore.Qt.LinksAccessibleByKeyboard|QtCore.Qt.LinksAccessibleByMouse|QtCore.Qt.TextBrowserInteraction|QtCore.Qt.TextSelectableByKeyboard|QtCore.Qt.TextSelectableByMouse)
         self.te_sendAscii.setObjectName(_fromUtf8("te_sendAscii"))
         self.toolBox_3.addItem(self.page_6, _fromUtf8(""))
         self.groupBox_6 = QtGui.QGroupBox(displayPannel)
@@ -72,11 +68,8 @@ class Ui_displayPannel(object):
         self.chkb_dataLength.setChecked(True)
         self.chkb_dataLength.setObjectName(_fromUtf8("chkb_dataLength"))
         self.horizontalLayout_17.addWidget(self.chkb_dataLength)
-        self.chkb_dataSeperate = QtGui.QCheckBox(self.horizontalLayoutWidget)
-        self.chkb_dataSeperate.setObjectName(_fromUtf8("chkb_dataSeperate"))
-        self.horizontalLayout_17.addWidget(self.chkb_dataSeperate)
         self.pb_clearShowWindow = QtGui.QPushButton(self.groupBox_6)
-        self.pb_clearShowWindow.setGeometry(QtCore.QRect(460, 11, 145, 20))
+        self.pb_clearShowWindow.setGeometry(QtCore.QRect(469, 11, 145, 20))
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -100,7 +93,7 @@ class Ui_displayPannel(object):
         self.page.setObjectName(_fromUtf8("page"))
         self.te_recvHex = QtGui.QTextEdit(self.page)
         self.te_recvHex.setGeometry(QtCore.QRect(0, 0, 201, 231))
-        self.te_recvHex.setReadOnly(True)
+        self.te_recvHex.setTextInteractionFlags(QtCore.Qt.LinksAccessibleByKeyboard|QtCore.Qt.LinksAccessibleByMouse|QtCore.Qt.TextBrowserInteraction|QtCore.Qt.TextSelectableByKeyboard|QtCore.Qt.TextSelectableByMouse)
         self.te_recvHex.setObjectName(_fromUtf8("te_recvHex"))
         self.toolBox.addItem(self.page, _fromUtf8(""))
         self.page_2 = QtGui.QWidget()
@@ -108,13 +101,14 @@ class Ui_displayPannel(object):
         self.page_2.setObjectName(_fromUtf8("page_2"))
         self.te_recvAscii = QtGui.QTextEdit(self.page_2)
         self.te_recvAscii.setGeometry(QtCore.QRect(0, 0, 201, 231))
-        self.te_recvAscii.setReadOnly(True)
+        self.te_recvAscii.setTextInteractionFlags(QtCore.Qt.LinksAccessibleByKeyboard|QtCore.Qt.LinksAccessibleByMouse|QtCore.Qt.TextBrowserInteraction|QtCore.Qt.TextSelectableByKeyboard|QtCore.Qt.TextSelectableByMouse)
         self.te_recvAscii.setObjectName(_fromUtf8("te_recvAscii"))
         self.toolBox.addItem(self.page_2, _fromUtf8(""))
 
         self.retranslateUi(displayPannel)
         self.toolBox_3.setCurrentIndex(1)
         self.toolBox.setCurrentIndex(1)
+        QtCore.QObject.connect(self.pb_clearShowWindow, QtCore.SIGNAL(_fromUtf8("clicked()")), displayPannel.slot_clear_display)
         QtCore.QMetaObject.connectSlotsByName(displayPannel)
 
     def retranslateUi(self, displayPannel):
@@ -122,10 +116,9 @@ class Ui_displayPannel(object):
         self.groupBox_4.setTitle(_translate("displayPannel", "수신", None))
         self.toolBox_3.setItemText(self.toolBox_3.indexOf(self.page_5), _translate("displayPannel", "Hex", None))
         self.toolBox_3.setItemText(self.toolBox_3.indexOf(self.page_6), _translate("displayPannel", "Ascii", None))
-        self.groupBox_6.setTitle(_translate("displayPannel", "송 · 수신 옵션", None))
+        self.groupBox_6.setTitle(_translate("displayPannel", "송 · 수신 데이터 표출 옵션", None))
         self.chkb_timeStamp.setText(_translate("displayPannel", "타임 스탬프", None))
         self.chkb_dataLength.setText(_translate("displayPannel", "데이터 길이", None))
-        self.chkb_dataSeperate.setText(_translate("displayPannel", "데이터 구분", None))
         self.pb_clearShowWindow.setText(_translate("displayPannel", "송 · 수신창 지우기", None))
         self.groupBox_5.setTitle(_translate("displayPannel", "송신", None))
         self.toolBox.setItemText(self.toolBox.indexOf(self.page), _translate("displayPannel", "Hex", None))

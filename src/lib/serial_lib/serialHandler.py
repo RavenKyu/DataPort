@@ -83,7 +83,7 @@ class SerialHandler():
             if True is self.ser.isOpen():
                 return True
 
-    def sendData(self, data):
+    def send_data(self, data):
         self.ser.write(data)
 
     def readData(self, num = 1):

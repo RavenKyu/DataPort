@@ -1,6 +1,7 @@
 from distutils.core import setup
-import py2exe, sip
+import py2exe, sip, sys
 
+sys.path.append("C:\Users\kyu\Dropbox\Projects\EverybodysProgram\DataPort")
 excludes = [
     "pywin",
     "pywin.debugger",
@@ -20,5 +21,5 @@ options = {
 setup(
     options = {"py2exe": options},
     zipfile = None,                    # append zip-archive to the executable
-    console = ["main.py"]
+    windows = ["main.py"]
 )

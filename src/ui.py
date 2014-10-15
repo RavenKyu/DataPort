@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui.ui'
 #
-# Created: Fri Jul 25 00:54:03 2014
+# Created: Wed Sep 17 11:51:20 2014
 #      by: PyQt4 UI code generator 4.10.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -27,25 +27,29 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
         MainWindow.setEnabled(True)
-        MainWindow.resize(831, 646)
+        MainWindow.resize(811, 620)
+        MainWindow.setMinimumSize(QtCore.QSize(811, 620))
+        MainWindow.setMaximumSize(QtCore.QSize(811, 620))
         MainWindow.setMouseTracking(True)
         MainWindow.setFocusPolicy(QtCore.Qt.WheelFocus)
+        MainWindow.setUnifiedTitleAndToolBarOnMac(True)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
-        self.tabw_pannel = QtGui.QTabWidget(self.centralwidget)
-        self.tabw_pannel.setGeometry(QtCore.QRect(6, 10, 821, 591))
-        self.tabw_pannel.setBaseSize(QtCore.QSize(0, 6))
-        self.tabw_pannel.setAcceptDrops(False)
-        self.tabw_pannel.setDocumentMode(False)
-        self.tabw_pannel.setTabsClosable(True)
-        self.tabw_pannel.setMovable(True)
-        self.tabw_pannel.setObjectName(_fromUtf8("tabw_pannel"))
+        self.tabWidget = QtGui.QTabWidget(self.centralwidget)
+        self.tabWidget.setGeometry(QtCore.QRect(0, 5, 801, 591))
+        self.tabWidget.setBaseSize(QtCore.QSize(0, 6))
+        self.tabWidget.setAcceptDrops(False)
+        self.tabWidget.setElideMode(QtCore.Qt.ElideNone)
+        self.tabWidget.setDocumentMode(True)
+        self.tabWidget.setTabsClosable(True)
+        self.tabWidget.setMovable(False)
+        self.tabWidget.setObjectName(_fromUtf8("tabWidget"))
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtGui.QStatusBar(MainWindow)
         self.statusbar.setObjectName(_fromUtf8("statusbar"))
         MainWindow.setStatusBar(self.statusbar)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 831, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 811, 21))
         self.menubar.setObjectName(_fromUtf8("menubar"))
         self.menu = QtGui.QMenu(self.menubar)
         self.menu.setObjectName(_fromUtf8("menu"))
@@ -66,7 +70,8 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menu.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.tabw_pannel.setCurrentIndex(-1)
+        self.tabWidget.setCurrentIndex(-1)
+        QtCore.QObject.connect(self.tabWidget, QtCore.SIGNAL(_fromUtf8("tabCloseRequested(int)")), MainWindow.slot_close_tab)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

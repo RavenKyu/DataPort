@@ -35,6 +35,7 @@ class threadSendData(QtCore.QThread):
         else:
             self.device_handler.send_data(self.data)
             self.send_signal.emit(self.data, self.location)
+            print 'aa'
 
     def stop(self):
         self.state = False
@@ -51,7 +52,7 @@ class threadSendData(QtCore.QThread):
             if __package__ is None:
                 print self.data
             else:
-                self.device_handler.sendData(self.data)
+                self.device_handler.send_data(self.data)
                 self.send_signal.emit(self.data, self.location)
 
             time.sleep(int(self.interval) / 1000.0)
@@ -120,6 +121,12 @@ class inputPannel(QtGui.QWidget):
                 self.send_thread.start()
             else:
                 self.send_thread.send_data() # 한번 보내기
+
+    def stop(self):
+        print 'stop'
+        self.ui.pb_sendButton.setText(u'전송')
+        self.send_thread.stop()
+
 
 
 

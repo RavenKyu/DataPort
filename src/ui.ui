@@ -9,9 +9,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>831</width>
-    <height>646</height>
+    <width>811</width>
+    <height>620</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>811</width>
+    <height>620</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>811</width>
+    <height>620</height>
+   </size>
   </property>
   <property name="mouseTracking">
    <bool>true</bool>
@@ -22,13 +34,16 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>true</bool>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>6</x>
-      <y>10</y>
-      <width>821</width>
+      <x>0</x>
+      <y>5</y>
+      <width>801</width>
       <height>591</height>
      </rect>
     </property>
@@ -42,7 +57,10 @@
      <bool>false</bool>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>-1</number>
+    </property>
+    <property name="elideMode">
+     <enum>Qt::ElideNone</enum>
     </property>
     <property name="documentMode">
      <bool>true</bool>
@@ -51,23 +69,8 @@
      <bool>true</bool>
     </property>
     <property name="movable">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
-    <widget class="QWidget" name="tab_2">
-     <attribute name="title">
-      <string>쪽</string>
-     </attribute>
-     <widget class="QWidget" name="widget" native="true">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>791</width>
-        <height>540</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -76,7 +79,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>831</width>
+     <width>811</width>
      <height>21</height>
     </rect>
    </property>
@@ -120,7 +123,24 @@
   </action>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>tabWidget</sender>
+   <signal>tabCloseRequested(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slot_close_tab(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>26</x>
+     <y>43</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>45</x>
+     <y>27</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
  <designerdata>
   <property name="gridDeltaX">
    <number>10</number>
@@ -139,20 +159,6 @@
   </property>
  </designerdata>
  <slots>
-  <slot>slot_pushButton_serialConnection()</slot>
-  <slot>slot_comboBox_hexOrAscii(int)</slot>
-  <slot>slot_pushButton_sendData(bool)</slot>
-  <slot>slot_radioBox_nothing()</slot>
-  <slot>slot_radioBox_CR()</slot>
-  <slot>slot_radioBox_LF()</slot>
-  <slot>slot_radioBox_CRLF()</slot>
-  <slot>slot_radioBox_STXETX()</slot>
-  <slot>slot_pushButton_addProtocol()</slot>
-  <slot>slot_pushButton_loadProtocol()</slot>
-  <slot>slot_comboBox_protocolList(int)</slot>
-  <slot>slot_pushButton_delProtocol()</slot>
-  <slot>slot_checkBox_autoSendData(bool)</slot>
-  <slot>slot_pushButton_dataClean()</slot>
-  <slot>slot_pushButton_tcpConnection()</slot>
+  <slot>slot_close_tab(int)</slot>
  </slots>
 </ui>

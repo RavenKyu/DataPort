@@ -242,6 +242,12 @@
     <layout class="QHBoxLayout" name="horizontalLayout_20">
      <item>
       <widget class="QCheckBox" name="checkBox_autoSending">
+       <property name="minimumSize">
+        <size>
+         <width>400</width>
+         <height>0</height>
+        </size>
+       </property>
        <property name="text">
         <string>자동 전송</string>
        </property>
@@ -249,6 +255,9 @@
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_21">
+       <property name="spacing">
+        <number>2</number>
+       </property>
        <item>
         <widget class="QLabel" name="label_15">
          <property name="sizePolicy">
@@ -276,8 +285,17 @@
        </item>
        <item>
         <widget class="QSpinBox" name="sp_intervalTime">
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="maximum">
           <number>999999999</number>
+         </property>
+         <property name="value">
+          <number>1000</number>
          </property>
         </widget>
        </item>
@@ -293,6 +311,12 @@
           <size>
            <width>23</width>
            <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>23</width>
+           <height>16777215</height>
           </size>
          </property>
          <property name="text">
